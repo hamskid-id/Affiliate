@@ -13,7 +13,6 @@ const DashboardIcon = () => (
   </svg>
 );
 
-
 export {
   DashboardIcon,
 };
