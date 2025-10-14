@@ -11,16 +11,22 @@ Key features
 - Zustand for lightweight state
 - React Hook Form + Zod for forms and validation
 
-## Repository layout (high level)
+## Repository layout (Source level)
 
-- `app/` — Next.js app router pages and layout
-- `components/` — Reusable UI components (see `components/ui/`)
-- `api/` — API clients and auth helpers (e.g. `cookie-auth.ts`, `client.ts`)
-- `hooks/` — Custom hooks and React Query queries
-- `providers/` — App-level providers (e.g. `QueryProvider.tsx`)
-- `stores/` — Providers and Stores (e.g. `auth-store.ts, AuthContext.ts`)
-- `types/` — Shared TypeScript types
-- `public/` — Static assets
+This project keeps most application source files under `src/`. Key folders are:
+
+- `src/app/` — Next.js App Router pages and layouts (top-level `layout.tsx`, route groups like `(auth)` and `(dashboard)`).
+- `src/components/` — Reusable UI components. Subfolders organize areas (e.g. `auth/`, `dashboard/`, `shared/`, `ui/`).
+- `src/api/` — API clients and auth helpers (for example `client.ts`, `cookie-auth.ts`, `auth-service.ts`).
+- `src/hooks/` — Custom React hooks and query helpers (e.g. `use-queries.ts`, `use-avatar.ts`).
+- `src/lib/` — Small utilities and React Query setup (e.g. `react-query.ts`, `utils.ts`).
+- `src/providers/` — App-level providers (e.g. `QueryProvider.tsx`).
+- `src/schema/` — Zod schemas for form validation (e.g. `sign-in.ts`, `signup.ts`).
+- `src/stores/` — State stores (Zustand or context providers).
+- `src/types/` — Shared TypeScript types used across the app.
+- `public/` — Static assets served by Next.js (e.g. `assets/`).
+
+There are also configuration and tooling files at the repo root (for example `package.json`, `tsconfig.json`, Tailwind/PostCSS and lint configs, and Husky hooks under `list/_`).
 
 ## Requirements
 

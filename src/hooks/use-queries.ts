@@ -83,19 +83,17 @@ function useInfinitePaginated<T>(
     },
     initialPageParam: 1,
     getNextPageParam: (lastPage) => {
-      const { page_number, page_size, total_count } = lastPage.data;
-      const totalPages = Math.ceil(total_count / page_size);
-      return page_number < totalPages ? page_number + 1 : undefined;
+      const { page, page_size, total } = lastPage.data;
+      const totalPages = Math.ceil(total / page_size);
+      return page < totalPages ? page + 1 : undefined;
     },
     getPreviousPageParam: (firstPage) =>
-      firstPage.data.page_number > 1
-        ? firstPage.data.page_number - 1
-        : undefined,
+      firstPage.data.page > 1 ? firstPage.data.page - 1 : undefined,
     ...options,
   });
 }
 
-// --- Helper for mutation with automatic key invalidation ---
+// ---- Helper for mutation with automatic key invalidation ----
 function useApiMutation<TData, TVariables>(
   method: "post" | "put" | "patch" | "delete",
   url: string,
@@ -143,14 +141,16 @@ function useDelete<TData>(url: string, invalidateKey?: QueryKey) {
 
 function useDynamicDelete<TData>() {
   const queryClient = useQueryClient();
+
   return useMutation<TData, ApiError, string>({
     mutationFn: async (url: string) => {
       const response = await apiClient.delete<TData>(url);
       return response.data;
     },
     onSuccess: (_, url) => {
-      const key = [url.split("/")[1]];
-      queryClient.invalidateQueries({ queryKey: key });
+      const segments = url.split("/").filter(Boolean);
+      const mainKey = [segments[0]];
+      queryClient.invalidateQueries({ queryKey: mainKey, exact: false });
     },
   });
 }
