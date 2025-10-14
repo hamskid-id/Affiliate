@@ -1,4 +1,6 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
+# Load environment if needed
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # Load NVM if available
 
-npx commitlint --edit "$1"
+# Run commitlint with your TypeScript config
+npx --no -- commitlint --config commitlint.config.ts --edit "${1}"

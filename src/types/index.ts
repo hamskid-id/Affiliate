@@ -14,30 +14,54 @@ export enum FormFieldType {
   EMAIL = "email",
 }
 
+export interface User {
+  id: string;
+  created_at: string;
+  updated_at: string;
+  email: string;
+  name: string;
+  last_login: string;
+}
+
 export interface ApiResponse<T> {
-  status: string;
+  success: boolean;
+  status_code: number;
   message: string;
+  detail: string;
+  error: string;
   data: T;
 }
 
 export interface PaginatedResponse<T> {
-  page_number: number;
+  page: number;
   page_size: number;
-  total_count: number;
+  total: number;
+  pages: number;
   data: T[];
 }
 
 export interface ApiError {
+  success: boolean;
+  status_code: number;
   message: string;
-  status: number;
-  errors?: Record<string, string[]>;
+  detail: string;
+  error: string;
+  status?: number;
+  data?: {
+    errors?: ApiValidationError[];
+  };
+}
+export interface ApiValidationError {
+  loc: string[]; // e.g. ["body", "password"]
+  msg: string; // e.g. "Value error, Password must be at least 8 characters long"
+  type: string; // e.g. "value_error"
 }
 
 // Pagination parameters
 export interface PaginationParams {
   page?: number;
   limit?: number;
-  [key: string]: any; // dis
+  [key: string]: any;
 }
 
 // Full API response with pagination

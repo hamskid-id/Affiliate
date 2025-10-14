@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 "use client";
 
 import {
@@ -14,11 +16,10 @@ import { ApiError, ApiPaginatedResponse, PaginationParams } from "@/src/types";
 
 type QueryKey = (string | Record<string, any>)[];
 
-interface UseApiOptions<TQueryFnData, TData = TQueryFnData>
-  extends Omit<
-    UseQueryOptions<TQueryFnData, ApiError, TData, QueryKey>,
-    "queryKey" | "queryFn"
-  > {}
+type UseApiOptions<TQueryFnData, TData = TQueryFnData> = Omit<
+  UseQueryOptions<TQueryFnData, ApiError, TData, QueryKey>,
+  "queryKey" | "queryFn"
+>;
 
 function useGet<T>(key: QueryKey, url: string, options?: UseApiOptions<T>) {
   return useQuery<T, ApiError, T, QueryKey>({
@@ -94,7 +95,7 @@ function useInfinitePaginated<T>(
   });
 }
 
-// ---- Helper for mutation with automatic key invalidation ----
+// --- Helper for mutation with automatic key invalidation ---
 function useApiMutation<TData, TVariables>(
   method: "post" | "put" | "patch" | "delete",
   url: string,

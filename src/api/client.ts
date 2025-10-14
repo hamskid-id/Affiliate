@@ -1,32 +1,32 @@
-import { useAuthStore } from "@/stores/auth-store";
 import axios from "axios";
+import { getAuthToken, clearAuthCookies } from "@/src/api/cookie-auth";
 
 const apiClient = axios.create({
-  baseURL:
-    process.env.NEXT_PUBLIC_API_BASE_URL ||
-    "https://phplaravel-1494556-5705857.cloudwaysapps.com/v1",
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000",
   timeout: 20000,
 });
 
-// Request interceptor
+// REQUEST INTERCEPTOR
 apiClient.interceptors.request.use(
   (config) => {
-    const token = useAuthStore.getState().token;
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
+    const token = getAuthToken();
+    config.headers.Authorization = `Bearer ${token}`;
+
     return config;
   },
   (error) => Promise.reject(error)
 );
 
-// Response interceptor
+// RESPONSE INTERCEPTOR
 apiClient.interceptors.response.use(
   (response) => response,
-  (error) => {
-    if (error.response?.status === 401) {
-      useAuthStore.getState().logout();
+  async (error) => {
+    const status = error.response?.status;
+
+    if (status === 401) {
+      clearAuthCookies();
     }
+
     return Promise.reject(error);
   }
 );
