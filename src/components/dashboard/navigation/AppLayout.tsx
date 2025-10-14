@@ -30,7 +30,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
       navMain: navItems,
       logoIcon: Brand,
     }),
-    []
+    [],
   );
 
   return (

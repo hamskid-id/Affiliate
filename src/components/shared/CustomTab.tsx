@@ -45,7 +45,7 @@ export function CustomTabs({
       <TabsList
         className={cn(
           "w-full gap-4 bg-transparent custom-scroll justify-between flex p-[2px] rounded-lg h-auto overflow-auto max-w-full",
-          tabsListClassName
+          tabsListClassName,
         )}
       >
         {options.map((option) => (
@@ -56,7 +56,7 @@ export function CustomTabs({
               "!w-fit px-[12px] py-[8px] !md:text-[14px] !text-[12px] !font-[700] !shadow-none custom-scroll h-[38px] rounded-[6px] data-[state=active]:bg-[#E6F5EA] data-[state=inactive]:bg-transparent",
               "data-[state=active]:text-[#009254] data-[state=inactive]:text-[#5B5F5E]",
               "transition-colors focus-visible:outline-none focus-visible:ring-0",
-              triggerClassName
+              triggerClassName,
             )}
           >
             {option.label}
@@ -80,7 +80,7 @@ export function CustomTabs({
                 >
                   {option.content}
                 </motion.div>
-              )
+              ),
           )}
         </AnimatePresence>
       </div>

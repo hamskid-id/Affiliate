@@ -56,7 +56,7 @@ const InputWrapper = ({
   <div
     className={cn(
       "border border-[#f5f5f5] md:border-[#e5e5e5] dark:border-neutral-800 dark:bg-transparent px-4 rounded-[50px] sm:h-[45px] h-[43px] overflow-hidden flex items-center gap-x-4 focus-within:border-[#FDC316]",
-      className
+      className,
     )}
   >
     {children}

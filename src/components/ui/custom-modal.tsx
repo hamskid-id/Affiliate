@@ -45,7 +45,7 @@ export const CustomModal = memo<CustomModalProps>(
           className={cn(
             " m-auto p-[24px] sm:max-w-[400px] max-w-full max-h-[90vh] overflow-y-auto max-h-[90vh] custom-scroll",
             width && width,
-            bg && bg
+            bg && bg,
           )}
         >
           <DialogHeader className={cn("hidden", title && "block")}>
@@ -65,7 +65,7 @@ export const CustomModal = memo<CustomModalProps>(
         </DialogContent>
       </Dialog>
     );
-  }
+  },
 );
 
 CustomModal.displayName = "CustomModal";

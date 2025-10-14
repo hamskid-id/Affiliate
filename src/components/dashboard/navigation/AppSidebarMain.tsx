@@ -40,7 +40,7 @@ export function NavMain({ items }: NavMainProps) {
                   active
                     ? "bg-[#4169E11A] text-[#4169E1]"
                     : "text-[#606060] hover:text-[#4169E1] hover:bg-[#4169E11A]/70",
-                  !isCollapsed && "!h-[42px]"
+                  !isCollapsed && "!h-[42px]",
                 )}
                 data-active={active}
               >

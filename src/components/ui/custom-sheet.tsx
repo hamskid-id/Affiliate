@@ -51,7 +51,7 @@ export const SheetWrapper = memo<SheetWrapperProps>(
           className={cn(
             "p-6  overflow-y-auto max-h-[100vh] custom-scroll sm:max-w-[400px] w-full",
             width && width,
-            bg
+            bg,
           )}
         >
           <SheetHeader className={cn("mb-4 p-0", title && "block")}>
@@ -76,7 +76,7 @@ export const SheetWrapper = memo<SheetWrapperProps>(
         </SheetContent>
       </Sheet>
     );
-  }
+  },
 );
 
 SheetWrapper.displayName = "SheetWrapper";

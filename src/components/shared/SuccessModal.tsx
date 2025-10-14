@@ -48,7 +48,7 @@ const SuccessModal: React.FC<SuccessModalProps> = ({
             textClassName="sm:text-[12px] text-[10px] font-[600] text-[#5B5F5E]"
             className={cn(
               "flex-1 rounded-[20px]  border bg-white",
-              leftAction.className
+              leftAction.className,
             )}
           />
         )}
@@ -59,7 +59,7 @@ const SuccessModal: React.FC<SuccessModalProps> = ({
             textClassName="sm:text-[12px] text-[10px] font-[600]"
             className={cn(
               "flex-1 rounded-[20px] bg-[#006F37]",
-              rightAction.className
+              rightAction.className,
             )}
           />
         )}

@@ -36,7 +36,7 @@ function useGetPaginated<T>(
   key: QueryKey,
   url: string,
   params: PaginationParams = {},
-  options?: UseApiOptions<ApiPaginatedResponse<T>>
+  options?: UseApiOptions<ApiPaginatedResponse<T>>,
 ) {
   const { page = 1, limit = 25, ...restParams } = params;
 
@@ -71,7 +71,7 @@ function useInfinitePaginated<T>(
       number
     >,
     "queryKey" | "queryFn" | "initialPageParam" | "getNextPageParam"
-  >
+  >,
 ) {
   return useInfiniteQuery({
     queryKey: [...key, params],
@@ -99,7 +99,7 @@ function useInfinitePaginated<T>(
 function useApiMutation<TData, TVariables>(
   method: "post" | "put" | "patch" | "delete",
   url: string,
-  invalidateKey?: QueryKey
+  invalidateKey?: QueryKey,
 ) {
   const queryClient = useQueryClient();
 
@@ -118,21 +118,21 @@ function useApiMutation<TData, TVariables>(
 // ---- Hooks for specific methods ----
 function usePost<TData, TVariables = unknown>(
   url: string,
-  invalidateKey?: QueryKey
+  invalidateKey?: QueryKey,
 ) {
   return useApiMutation<TData, TVariables>("post", url, invalidateKey);
 }
 
 function usePut<TData, TVariables = unknown>(
   url: string,
-  invalidateKey?: QueryKey
+  invalidateKey?: QueryKey,
 ) {
   return useApiMutation<TData, TVariables>("put", url, invalidateKey);
 }
 
 function usePatch<TData, TVariables = unknown>(
   url: string,
-  invalidateKey?: QueryKey
+  invalidateKey?: QueryKey,
 ) {
   return useApiMutation<TData, TVariables>("patch", url, invalidateKey);
 }

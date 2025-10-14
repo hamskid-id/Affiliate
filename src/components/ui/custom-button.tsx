@@ -32,7 +32,7 @@ const Button = React.forwardRef<HTMLButtonElement, CustomButtonProps>(
       className,
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <ShadcnButton
@@ -53,7 +53,7 @@ const Button = React.forwardRef<HTMLButtonElement, CustomButtonProps>(
           iconPosition === "right" && "flex-row-reverse",
           iconPosition === "center" && "justify-center",
           withSideIcon && "pl-4 border w-fit",
-          className
+          className,
         )}
         {...props}
       >
@@ -81,7 +81,7 @@ const Button = React.forwardRef<HTMLButtonElement, CustomButtonProps>(
         )}
       </ShadcnButton>
     );
-  }
+  },
 );
 
 Button.displayName = "Button";

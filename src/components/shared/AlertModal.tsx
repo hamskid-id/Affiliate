@@ -44,7 +44,7 @@ const AlertModal: React.FC<{
               textClassName="!text-[14px] font-[600] text-[#5B5F5E]"
               className={cn(
                 "flex-1 rounded-[20px]  border bg-white",
-                leftAction.className
+                leftAction.className,
               )}
             />
           )}
@@ -55,7 +55,7 @@ const AlertModal: React.FC<{
               textClassName="!text-[14px] font-[600]"
               className={cn(
                 "flex-1 rounded-[20px] bg-[#006F37]",
-                rightAction.className
+                rightAction.className,
               )}
             />
           )}

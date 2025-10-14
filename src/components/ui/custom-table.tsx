@@ -70,7 +70,7 @@ const CustomTable: React.FC<CustomTableProps> = ({
                 col.width,
                 col.align === "right" && "text-right",
                 col.align === "center" && "text-center",
-                col.className
+                col.className,
               )}
             >
               {col.label}
@@ -114,7 +114,7 @@ const CustomTable: React.FC<CustomTableProps> = ({
                   className={cn(
                     "text-[#444846] font-[500] text-[12px] py-3",
                     col.align === "right" && "text-right",
-                    col.align === "center" && "text-center"
+                    col.align === "center" && "text-center",
                   )}
                 >
                   {row[col.key]}

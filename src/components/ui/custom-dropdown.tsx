@@ -64,7 +64,7 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
                         {sub.icon && <span className="mr-2">{sub.icon}</span>}
                         {sub.label}
                       </DropdownMenuItem>
-                    )
+                    ),
                   )}
                 </DropdownMenuSubContent>
               </DropdownMenuSub>

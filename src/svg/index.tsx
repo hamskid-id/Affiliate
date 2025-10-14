@@ -364,5 +364,5 @@ export {
   GoogleAdsSvg,
   FacebookTrafficSvg,
   InstagramSvg,
-  MailSvg
+  MailSvg,
 };

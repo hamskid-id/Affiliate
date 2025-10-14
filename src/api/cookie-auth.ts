@@ -4,7 +4,7 @@ import { setCookie, getCookie, deleteCookie } from "cookies-next";
 export function setAuthCookies(
   token: string,
   refresh_token: string,
-  user: User
+  user: User,
 ) {
   const cookieOptions = {
     maxAge: 60 * 60, // 1 hour

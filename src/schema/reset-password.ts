@@ -24,6 +24,6 @@ export const ResetPasswordFormSchema = z
   .refine((data) => data.pwd === data.cpwd, {
     path: ["cpwd"],
     message: "Passwords do not match.",
-  })
+  });
 
 export type ResetPasswordFormData = z.infer<typeof ResetPasswordFormSchema>;

@@ -68,7 +68,7 @@ export const MobileNav = ({ items }: MobileNavProps) => {
                       className={cn(
                         "group flex items-center rounded-full shadow-md transition-colors bg-black text-white cursor-pointer",
                         "hover:bg-neutral-800",
-                        active && "bg-primary_40"
+                        active && "bg-primary_40",
                       )}
                     >
                       {/* Icon */}
@@ -90,8 +90,6 @@ export const MobileNav = ({ items }: MobileNavProps) => {
                 </motion.div>
               );
             })}
-
-            
           </motion.div>
         )}
       </AnimatePresence>

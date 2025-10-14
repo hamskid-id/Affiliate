@@ -5,17 +5,17 @@ import { LoginCredentials, LoginResponse } from "@/src/types/auth";
 
 export const authService = {
   login: async (
-    credentials: LoginCredentials
+    credentials: LoginCredentials,
   ): Promise<AxiosResponse<ApiResponse<LoginResponse>>> => {
     return apiClient.post<ApiResponse<LoginResponse>>(
       "/auth/login",
-      credentials
+      credentials,
     );
   },
 
   resetPassword: async (
     newPassword: string,
-    token: string
+    token: string,
   ): Promise<AxiosResponse<ApiResponse<null>>> => {
     const payload = {
       password: newPassword,
