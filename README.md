@@ -1,36 +1,120 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AFFILIATE App
 
-## Getting Started
+A Next.js 15 TypeScript application with Tailwind CSS, Shadcn UI components, React Query, and small utility providers and stores — meant as a starting point for building IFRS-related UIs.
 
-First, run the development server:
+Key features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Next.js 15 App Router (TypeScript)
+- Tailwind CSS (v4) + PostCSS
+- Radix UI primitives and Lucide icons
+- React Query (TanStack) + React Query Devtools
+- Zustand for lightweight state
+- React Hook Form + Zod for forms and validation
+
+## Repository layout (high level)
+
+- `app/` — Next.js app router pages and layout
+- `components/` — Reusable UI components (see `components/ui/`)
+- `api/` — API clients and auth helpers (e.g. `cookie-auth.ts`, `client.ts`)
+- `hooks/` — Custom hooks and React Query queries
+- `providers/` — App-level providers (e.g. `QueryProvider.tsx`)
+- `stores/` — Providers and Stores (e.g. `auth-store.ts, AuthContext.ts`)
+- `types/` — Shared TypeScript types
+- `public/` — Static assets
+
+## Requirements
+
+- Node.js 20+ (recommended)
+- npm, yarn or pnpm
+- Recommended editor: VS Code (with TypeScript and Tailwind CSS extensions)
+
+## Quick start (development)
+
+1. Install dependencies
+
+```powershell
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Run the development server
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```powershell
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open `http://localhost:3000` in your browser. The project uses Next's Turbopack for local development per the `dev` script.
 
-## Learn More
+## Build & production
 
-To learn more about Next.js, take a look at the following resources:
+Build the application for production:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```powershell
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Start the production server (after building):
 
-## Deploy on Vercel
+```powershell
+npm run start
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Available scripts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Listed from `package.json`:
+
+- `dev` — `next dev --turbopack`
+- `build` — `next build --turbopack`
+- `start` — `next start`
+- `lint` — `next lint`
+- `lint-staged` — `lint-staged` (used by pre-commit)
+- `format` — `prettier --check .`
+- `format:fix` — `npx prettier --write --list-different .`
+- `prepare` — `husky || true`
+
+If you use `yarn`/`pnpm`, run equivalent commands (`yarn dev`, `pnpm dev`, etc.).
+
+## Environment variables
+
+Create a `.env.local` at the project root for local development. Example variables (adjust to your needs):
+
+```
+NEXT_PUBLIC_API_BASE_URL=http://localhost:3000/api
+JWT_SECRET=your_jwt_secret_here
+```
+
+Do not commit secrets. Use your hosting platform's environment configuration for production keys.
+
+## Auth and API patterns
+
+- Inspect `api/client.ts` for an Axios instance and interceptors.
+- `api/cookie-auth.ts` contains utility functions to read and write cookies for auth tokens (server + client aware).
+- `stores/auth-store.ts` contains a small Zustand store for auth state.
+
+When updating cookie or token names, update all references in `api/` and `stores/`.
+
+## Linting, formatting & commit hooks
+
+- Prettier is configured for formatting checks and fixes (`format`, `format:fix`).
+- Commitlint and Husky are configured to enforce conventional commit messages and run pre-commit hooks. See `.husky/` and `commitlint.config.ts`.
+
+## Testing
+
+No unit or e2e tests are included by default. Recommended next steps:
+
+- Add unit tests with Jest + React Testing Library
+- Add end-to-end tests with Playwright or Cypress
+
+## Deployment
+
+This repo is ready for Vercel deployment. Connect the repository to Vercel and add the required environment variables. Alternatively, you can containerize the app or self-host using Node.
+
+## Contributing
+
+- Follow existing code style and TypeScript usage.
+- Run `npm run format:fix` before committing.
+- Commit messages should follow conventional commits (commitlint will validate).
+
+## Troubleshooting
+
+- If you see dev server errors, try removing `.next/` and re-running `npm run dev`.
+- If types are stale, restart your editor's TS server.
