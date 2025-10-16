@@ -42,7 +42,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
 "
       >
         <AppHeader />
-        <main className="bg-gray-50 px-4 md:px-8 py-6 h-full">{children}</main>
+        <main className="bg-gray-50 px-4 md:px-8 py-6 h-full relative">{children}</main>
       </SidebarInset>
 
       <MobileNav items={sidebarData.navMain} />

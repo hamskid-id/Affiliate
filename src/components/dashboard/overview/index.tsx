@@ -16,6 +16,7 @@ import AffiliateSvg from "@/public/assets/Icon (1).svg";
 import PayoutSvg from "@/public/assets/Icon (2).svg";
 import EndSvg from "@/public/assets/Icon (3).svg";
 import { CustomImage } from "../../ui/custom-image";
+import { useRouter } from "next/navigation";
 
 interface StatData {
   title: string;
@@ -29,6 +30,14 @@ interface StatData {
 }
 
 const Overview: React.FC = () => {
+  const router = useRouter();
+  const isNew = true;
+
+  if (isNew) {
+    router.push("/dashboard/onboarding");
+    return;
+  }
+
   const [filterValue, setFilterValue] = useState<string>("All Campaigns");
 
   const statsData: StatData[] = [

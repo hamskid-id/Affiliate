@@ -1,12 +1,12 @@
 "use client";
 
-import * as React from "react";
-import { usePathname, useRouter } from "next/navigation";
 import { navItems } from "@/src/contants/navigation";
-import { NotificationIcon } from "@/src/svg";
-import { Search, Plus } from "lucide-react";
+import { Plus, Search } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import * as React from "react";
 import CustomButton from "../../ui/custom-button";
 import { Input } from "../../ui/input";
+import NotificationBell from "../../ui/notification-bell";
 
 interface IAppHeader {
   notificationsCount?: number;
@@ -91,14 +91,7 @@ const AppHeader: React.FC<IAppHeader> = ({ notificationsCount = 0 }) => {
           )}
 
           {/* Notifications */}
-          <div className="relative cursor-pointer">
-            <NotificationIcon />
-            {notificationsCount > 0 && (
-              <span className="absolute -top-1 -right-1 bg-[#E6F5EA] text-primary_40 text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center">
-                {notificationsCount}
-              </span>
-            )}
-          </div>
+          <NotificationBell notificationsCount={notificationsCount} />
 
           {/* Action Button */}
           {activeItem.showActionButton && (
