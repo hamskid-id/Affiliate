@@ -39,6 +39,7 @@ interface CustomProps<T extends FieldValues> {
   showTimeSelect?: boolean;
   className?: string;
   renderSkeleton?: (field: ControllerRenderProps<T, FieldPath<T>>) => ReactNode;
+  description?: string;
 }
 
 interface RenderFieldProps<T extends FieldValues> {
@@ -55,7 +56,7 @@ const InputWrapper = ({
 }) => (
   <div
     className={cn(
-      "border border-[#f5f5f5] md:border-[#e5e5e5] dark:border-neutral-800 dark:bg-transparent px-4 rounded-[50px] sm:h-[45px] h-[43px] overflow-hidden flex items-center gap-x-4 focus-within:border-[#FDC316]",
+      "border border-[#f5f5f5] md:border-[#e5e5e5] dark:border-neutral-800 dark:bg-transparent px-4 rounded-[50px] h-[48px] overflow-hidden flex items-center gap-x-4 focus-within:border-[#FDC316]",
       className,
     )}
   >
@@ -222,7 +223,7 @@ const RenderField = <T extends FieldValues>({
 };
 
 const CustomFormField = <T extends FieldValues>(props: CustomProps<T>) => {
-  const { control, fieldType, label, name } = props;
+  const { control, fieldType, label, name, description } = props;
 
   return (
     <div className="flex flex-col gap-y-2">
@@ -245,6 +246,11 @@ const CustomFormField = <T extends FieldValues>(props: CustomProps<T>) => {
           </>
         )}
       />
+      {description && (
+        <p className="text-xs text-[#737373] dark:text-neutral-400">
+          {description}
+        </p>
+      )}
     </div>
   );
 };

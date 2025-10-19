@@ -1,11 +1,12 @@
 "use client";
 
 import * as React from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { navItems } from "@/src/contants/navigation";
 import { NotificationIcon } from "@/src/svg";
 import { Search, Plus } from "lucide-react";
 import CustomButton from "../../ui/custom-button";
+import { Input } from "../../ui/input";
 
 interface IAppHeader {
   notificationsCount?: number;
@@ -13,14 +14,39 @@ interface IAppHeader {
 
 const AppHeader: React.FC<IAppHeader> = ({ notificationsCount = 0 }) => {
   const pathname = usePathname();
+  const router = useRouter();
   const [searchValue, setSearchValue] = React.useState("");
 
-  const activeItem = navItems.find((item) => pathname === item.url);
+  // Find exact match first
+  let activeItem = navItems.find((item) => pathname === item.url);
+
+  // If no exact match, find the longest matching parent route
+  if (!activeItem) {
+    const matchingItems = navItems.filter((item) => {
+      // Check if current path starts with the nav item's url and is a subroute
+      return pathname.startsWith(item.url + "/");
+    });
+
+    // Sort by URL length (descending) to get the most specific match
+    if (matchingItems.length > 0) {
+      activeItem = matchingItems.sort((a, b) => b.url.length - a.url.length)[0];
+    }
+  }
 
   // If no active item found, don't render the header
   if (!activeItem) return null;
 
+  // Check if we're on a subroute (not the exact main route)
+  const isSubRoute = pathname !== activeItem.url;
+
   const handleActionClick = () => {
+    // Priority 1: Use actionButtonUrl for navigation
+    if (activeItem.actionButtonUrl) {
+      router.push(activeItem.actionButtonUrl);
+      return;
+    }
+
+    // Priority 2: Use custom onActionClick handler
     if (activeItem.onActionClick) {
       activeItem.onActionClick();
     }
@@ -48,19 +74,18 @@ const AppHeader: React.FC<IAppHeader> = ({ notificationsCount = 0 }) => {
         </div>
       </div>
 
-      {/* Right Section - Search, Notification, Action Button */}
-      {activeItem.showRightSection && (
-        <div className="flex items-center gap-4">
+      {activeItem.showRightSection && !isSubRoute && (
+        <div className="md:flex hidden items-center gap-4">
           {/* Search Bar */}
           {activeItem.showSearch && (
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#667085]" />
-              <input
+              <Input
                 type="text"
                 placeholder="Search..."
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
-                className="w-[300px] h-10 pl-10 pr-4 rounded-lg border border-gray-300 text-sm text-gray-900 placeholder:text-[#667085] focus:outline-none focus:ring-2 focus:ring-[#FF5C00] focus:border-transparent"
+                className="w-[220px] h-[45px] pl-10 pr-4 rounded-[50px] bg-[#4169E11A]"
               />
             </div>
           )}
@@ -79,9 +104,10 @@ const AppHeader: React.FC<IAppHeader> = ({ notificationsCount = 0 }) => {
           {activeItem.showActionButton && (
             <CustomButton
               onClick={handleActionClick}
-              className="h-10 px-5 bg-[#FF5C00] hover:bg-[#E54E00] text-white rounded-lg font-medium text-sm flex items-center gap-2 transition-colors"
+              withSideIcon
+              sideIcon={<Plus className="w-5 h-5" />}
+              iconPosition="left"
             >
-              <Plus className="w-5 h-5" />
               {activeItem.actionButtonText || "Add New"}
             </CustomButton>
           )}

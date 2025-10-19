@@ -22,7 +22,27 @@ export function NavMain({ items }: NavMainProps) {
   const isCollapsed = state === "collapsed";
   const pathname = usePathname();
 
-  const isActive = (url: string) => pathname === url;
+  // Find the most specific (longest) matching route
+  const getActiveUrl = () => {
+    // Find exact match first
+    const exactMatch = items.find((item) => pathname === item.url);
+    if (exactMatch) return exactMatch.url;
+
+    // Find all matching parent routes
+    const matchingItems = items.filter((item) =>
+      pathname.startsWith(item.url + "/"),
+    );
+
+    // Return the longest (most specific) match
+    if (matchingItems.length > 0) {
+      return matchingItems.sort((a, b) => b.url.length - a.url.length)[0].url;
+    }
+
+    return null;
+  };
+
+  const activeUrl = getActiveUrl();
+  const isActive = (url: string) => url === activeUrl;
 
   return (
     <SidebarGroup>

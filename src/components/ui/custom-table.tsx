@@ -1,7 +1,6 @@
 "use client";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
 import * as React from "react";
 import {
   Table,
@@ -27,14 +26,17 @@ export interface TableColumn {
 export interface TableAction {
   label: string;
   icon?: React.ReactNode;
-  onClick: (row: Record<string, React.ReactNode>, rowIndex: number) => void;
+  onClick: (
+    row: Record<string, React.ReactNode> & { rawData?: any },
+    rowIndex: number,
+  ) => void;
   variant?: "default" | "outline" | "ghost" | "destructive";
 }
 
 export interface CustomTableProps {
   caption?: string;
   columns: TableColumn[];
-  rows: Record<string, React.ReactNode>[];
+  rows: (Record<string, React.ReactNode> & { rawData?: any })[];
   actions?: TableAction[];
   className?: string;
   tableHeaderClassName?: string;
@@ -60,13 +62,13 @@ const CustomTable: React.FC<CustomTableProps> = ({
     <Table className={cn("w-full custom-scroll", className)}>
       {caption && <TableCaption>{caption}</TableCaption>}
 
-      <TableHeader className={cn("bg-[#CAEAD4]", tableHeaderClassName)}>
+      <TableHeader className={cn("bg-[#F9F9F9]", tableHeaderClassName)}>
         <TableRow>
           {columns.map((col, i) => (
             <TableHead
               key={i}
               className={cn(
-                "font-[700] sm:text-[14px] text-[13px] text-[#003A1B] py-3",
+                "font-[500] sm:text-[14px] text-[13px] text-[#606060] py-3 pl-4",
                 col.width,
                 col.align === "right" && "text-right",
                 col.align === "center" && "text-center",
@@ -76,7 +78,9 @@ const CustomTable: React.FC<CustomTableProps> = ({
               {col.label}
             </TableHead>
           ))}
-          {hasActions && <TableHead className="text-right">Actions</TableHead>}
+          {hasActions && (
+            <TableHead className="text-right pr-4">Actions</TableHead>
+          )}
         </TableRow>
       </TableHeader>
 
@@ -85,12 +89,12 @@ const CustomTable: React.FC<CustomTableProps> = ({
           Array.from({ length: skeletonRowCount }).map((_, i) => (
             <TableRow key={`skeleton-${i}`}>
               {columns.map((col, j) => (
-                <TableCell key={j}>
+                <TableCell key={j} className="pl-4">
                   <Skeleton className="h-4 w-[80%]" />
                 </TableCell>
               ))}
               {hasActions && (
-                <TableCell className="text-right">
+                <TableCell className="text-right pr-4">
                   <Skeleton className="h-6 w-[60px] ml-auto" />
                 </TableCell>
               )}
@@ -112,7 +116,7 @@ const CustomTable: React.FC<CustomTableProps> = ({
                 <TableCell
                   key={colIndex}
                   className={cn(
-                    "text-[#444846] font-[500] text-[12px] py-3",
+                    "text-[#444846] font-[500] text-[12px] py-3 pl-4",
                     col.align === "right" && "text-right",
                     col.align === "center" && "text-center",
                   )}
@@ -121,7 +125,7 @@ const CustomTable: React.FC<CustomTableProps> = ({
                 </TableCell>
               ))}
               {hasActions && (
-                <TableCell className="flex justify-end gap-2">
+                <TableCell className="flex justify-end gap-2 pr-4">
                   {actions.map((action, actionIndex) => (
                     <Button
                       key={actionIndex}

@@ -3,11 +3,11 @@
 import React from "react";
 import { ArrowDown, ArrowUp } from "lucide-react";
 
-interface StatsCardProps {
+export interface StatsCardProps {
   title: string;
   value: string;
-  change: string;
-  trend: "up" | "down";
+  change?: string;
+  trend?: "up" | "down";
   subtitle: string;
   icon: React.ReactNode;
   iconBg: string;

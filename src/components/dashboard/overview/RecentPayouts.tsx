@@ -3,6 +3,7 @@
 import React from "react";
 import CustomTable, { TableAction, TableColumn } from "../../ui/custom-table";
 import CustomButton from "../../ui/custom-button";
+import CustomAvatar from "../../ui/custom-avatar";
 
 interface PayoutData {
   name: string;
@@ -77,9 +78,7 @@ const RecentPayouts: React.FC = () => {
   const rows = payoutsData.map((payout) => ({
     nameCell: (
       <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
-          {payout.avatar}
-        </div>
+        <CustomAvatar name={payout.avatar} />
         <div>
           <p className="text-sm font-semibold text-[#111827]">{payout.name}</p>
           <p className="text-xs text-[#9CA3AF]">{payout.email}</p>
