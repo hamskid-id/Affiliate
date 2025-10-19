@@ -1,13 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  Users,
-  ShoppingCart,
-  DollarSign,
-  Award,
-  ChevronDown,
-} from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import CustomDropdown, { DropdownItem } from "../../ui/custom-dropdown";
 import StatsCard from "../../shared/StatsCard";
 import ConversionTrendsChart from "./ConversionTrendsChart";

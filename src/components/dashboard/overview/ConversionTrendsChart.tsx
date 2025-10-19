@@ -1,6 +1,3 @@
-// ============= CONVERSION TRENDS CHART COMPONENT =============
-// File: components/ConversionTrendsChart.tsx
-
 "use client";
 
 import React from "react";

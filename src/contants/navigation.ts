@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import {
   DashboardIcon,
   CampaignIcon,
@@ -18,7 +20,8 @@ export interface NavItem {
   showSearch?: boolean;
   showActionButton?: boolean;
   actionButtonText?: string;
-  onActionClick?: () => void;
+  actionButtonUrl?: string; // for navigation
+  onActionClick?: () => void; // for custom actions
 }
 
 export const navItems: NavItem[] = [
@@ -38,10 +41,7 @@ export const navItems: NavItem[] = [
     showSearch: true,
     showActionButton: true,
     actionButtonText: "Create Campaign",
-    onActionClick: () => {
-      // Handle create campaign
-      console.log("Create Campaign clicked");
-    },
+    actionButtonUrl: "/dashboard/campaigns/create", // Navigate to create page
   },
   {
     title: "Affiliates",
@@ -52,10 +52,7 @@ export const navItems: NavItem[] = [
     showSearch: true,
     showActionButton: true,
     actionButtonText: "Invite Affiliate",
-    onActionClick: () => {
-      // Handle invite affiliate
-      console.log("Invite Affiliate clicked");
-    },
+    actionButtonUrl: "/dashboard/affiliates/invite",
   },
   {
     title: "Events",
@@ -66,10 +63,7 @@ export const navItems: NavItem[] = [
     showSearch: true,
     showActionButton: true,
     actionButtonText: "Create Event",
-    onActionClick: () => {
-      // Handle create event
-      console.log("Create Event clicked");
-    },
+    actionButtonUrl: "/dashboard/events/create",
   },
   {
     title: "Commission Rules",
@@ -80,10 +74,7 @@ export const navItems: NavItem[] = [
     showSearch: true,
     showActionButton: true,
     actionButtonText: "Add Rule",
-    onActionClick: () => {
-      // Handle add rule
-      console.log("Add Rule clicked");
-    },
+    actionButtonUrl: "/dashboard/commission-rules/create",
   },
   {
     title: "Payouts",
@@ -94,10 +85,7 @@ export const navItems: NavItem[] = [
     showSearch: true,
     showActionButton: true,
     actionButtonText: "Process Payout",
-    onActionClick: () => {
-      // Handle process payout
-      console.log("Process Payout clicked");
-    },
+    actionButtonUrl: "/dashboard/payouts/process",
   },
   {
     title: "Integration",
@@ -108,10 +96,7 @@ export const navItems: NavItem[] = [
     showSearch: true,
     showActionButton: true,
     actionButtonText: "Add Integration",
-    onActionClick: () => {
-      // Handle add integration
-      console.log("Add Integration clicked");
-    },
+    actionButtonUrl: "/dashboard/integration/add",
   },
   {
     title: "Settings",

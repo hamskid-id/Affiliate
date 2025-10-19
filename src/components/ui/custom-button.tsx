@@ -41,10 +41,10 @@ const Button = React.forwardRef<HTMLButtonElement, CustomButtonProps>(
         disabled={isLoading || props.disabled}
         className={cn(
           // Base layout
-          "flex items-center gap-2 !sm:h-[45px] !h-[43px] rounded-[50px]",
+          "flex items-center gap-2 !sm:h-[45px] !h-[43px] rounded-[50px] px-[20px]",
           // Background and shadow styles
           "bg-[#FF5212] text-white font-bold text-[16px] leading-[21px]",
-          "rounded-full shadow-[inset_0px_6px_20px_rgba(255,255,255,0.7)]",
+          "rounded-full shadow-[inset_0px_6px_10px_rgba(255,255,255,0.7)]",
           "transition-all duration-300",
           // Hover and disabled states
           "hover:bg-[#ff6a33] hover:shadow-[inset_0px_6px_20px_rgba(255,255,255,0.8),_0_4px_10px_rgba(0,0,0,0.2)]",
