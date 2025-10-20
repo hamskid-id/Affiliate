@@ -31,7 +31,7 @@ interface StatData {
 
 const Overview: React.FC = () => {
   const router = useRouter();
-  const isNew = true;
+  const isNew = false;
 
   const [filterValue, setFilterValue] = useState<string>("All Campaigns");
 

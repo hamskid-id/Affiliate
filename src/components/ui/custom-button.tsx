@@ -3,9 +3,11 @@
 import * as React from "react";
 import { Button as ShadcnButton } from "@/src/components/ui/button";
 import { cn } from "@/src/lib/utils";
+import { useRouter } from "next/navigation";
 
 interface CustomButtonProps extends React.ComponentProps<typeof ShadcnButton> {
   title?: string;
+  to?: string;
   icon?: React.ReactNode;
   sideIcon?: React.ReactNode;
   withSideIcon?: boolean;
@@ -13,13 +15,13 @@ interface CustomButtonProps extends React.ComponentProps<typeof ShadcnButton> {
   isLoading?: boolean;
   showIcon?: boolean;
   textClassName?: string;
-  onClick?: () => void;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, CustomButtonProps>(
   (
     {
       title,
+      to,
       icon,
       sideIcon,
       withSideIcon = false,
@@ -34,10 +36,16 @@ const Button = React.forwardRef<HTMLButtonElement, CustomButtonProps>(
     },
     ref,
   ) => {
+    const router = useRouter();
     return (
       <ShadcnButton
         ref={ref}
-        onClick={onClick}
+        onClick={($e) => {
+          if (to) router.push(to);
+          if (!onClick) return;
+          onClick($e);
+          $e.preventDefault();
+        }}
         disabled={isLoading || props.disabled}
         className={cn(
           // Base layout

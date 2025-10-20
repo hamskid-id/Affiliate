@@ -16,6 +16,7 @@ export const MobileNav = ({ items }: MobileNavProps) => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
+  const visibleItems = items.filter((i) => !i.hideNav);
   const isActive = (url: string) => pathname === url;
 
   return (
@@ -40,7 +41,7 @@ export const MobileNav = ({ items }: MobileNavProps) => {
             exit={{ opacity: 0 }}
             className="fixed bottom-[7rem] right-6 z-40 flex flex-col items-end gap-3"
           >
-            {items.map((item, index) => {
+            {visibleItems.map((item, index) => {
               const active = isActive(item.url);
 
               return (

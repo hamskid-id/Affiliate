@@ -23,6 +23,13 @@ const OnboardingProgress = () => {
         value={20}
         indicatorClassName="bg-secondary-300"
       />
+
+      <div className="flex items-center gap-4 justify-between mt-2 text-sm text-neutral-600">
+        <p className="text-xs md:text-base">Getting started</p>
+        <p className="text-xs md:text-base">
+          Complete these essential steps to activate your affiliate program
+        </p>
+      </div>
     </div>
   );
 };

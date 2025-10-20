@@ -35,6 +35,7 @@ const AppHeader: React.FC<IAppHeader> = ({ notificationsCount = 0 }) => {
 
   // If no active item found, don't render the header
   if (!activeItem) return null;
+  if (activeItem.hideHeader) return null;
 
   // Check if we're on a subroute (not the exact main route)
   const isSubRoute = pathname !== activeItem.url;

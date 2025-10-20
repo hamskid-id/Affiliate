@@ -22,9 +22,18 @@ export interface NavItem {
   actionButtonText?: string;
   actionButtonUrl?: string; // for navigation
   onActionClick?: () => void; // for custom actions
+  hideNav?: boolean;
+  hideHeader?: boolean;
 }
 
 export const navItems: NavItem[] = [
+  {
+    title: "Onboarding",
+    url: "/dashboard/onboarding",
+    icon: DashboardIcon,
+    hideNav: true,
+    hideHeader: true,
+  },
   {
     title: "Dashboard",
     url: "/dashboard",
@@ -75,6 +84,14 @@ export const navItems: NavItem[] = [
     showActionButton: true,
     actionButtonText: "Add Rule",
     actionButtonUrl: "/dashboard/commission-rules/create",
+  },
+  {
+    title: "Payments",
+    url: "/dashboard/payments",
+    icon: PayoutsIcon,
+    description: "Configure your payment methods securely",
+    showRightSection: false,
+    hideNav: true,
   },
   {
     title: "Payouts",
