@@ -8,8 +8,6 @@ import AuthLayout from "./Layout";
 const CheckEmail: React.FC = () => {
   const isPending = false;
 
-
-
   const handleResendEmail = () => {
     console.log("Resending email...");
     // TODO: Resend email logic here
@@ -25,7 +23,7 @@ const CheckEmail: React.FC = () => {
       footerLinkTitle="Back to Login"
     >
       <div className="flex w-full flex-col gap-6 mt-6">
-        <p className="text-sm text-[#333333]">Didn't get an email?</p>
+        <p className="text-sm text-[#333333]">Didn&aposl;t get an email?</p>
         <CustomButton
           disabled={isPending}
           isLoading={isPending}
