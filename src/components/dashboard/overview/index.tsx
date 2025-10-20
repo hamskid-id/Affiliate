@@ -1,22 +1,22 @@
 "use client";
 
-import React, { useState } from "react";
-import { ChevronDown } from "lucide-react";
-import CustomDropdown, { DropdownItem } from "../../ui/custom-dropdown";
-import StatsCard from "../../shared/StatsCard";
-import ConversionTrendsChart from "./ConversionTrendsChart";
-import TopAffiliates from "./TopAffiliates";
-import TopPerformingCampaigns from "./TopPerformingCampaigns";
-import TrafficSources from "./TrafficSources";
-import GeographicPerformance from "./GeographicPerformance";
-import RecentPayouts from "./RecentPayouts";
-import { Button } from "../../ui/button";
-import CampaignSvg from "@/public/assets/Icon.svg";
 import AffiliateSvg from "@/public/assets/Icon (1).svg";
 import PayoutSvg from "@/public/assets/Icon (2).svg";
 import EndSvg from "@/public/assets/Icon (3).svg";
-import { CustomImage } from "../../ui/custom-image";
+import CampaignSvg from "@/public/assets/Icon.svg";
+import { ChevronDown } from "lucide-react";
 import { useRouter } from "next/navigation";
+import React, { useState } from "react";
+import StatsCard from "../../shared/StatsCard";
+import { Button } from "../../ui/button";
+import CustomDropdown, { DropdownItem } from "../../ui/custom-dropdown";
+import { CustomImage } from "../../ui/custom-image";
+import ConversionTrendsChart from "./ConversionTrendsChart";
+import GeographicPerformance from "./GeographicPerformance";
+import RecentPayouts from "./RecentPayouts";
+import TopAffiliates from "./TopAffiliates";
+import TopPerformingCampaigns from "./TopPerformingCampaigns";
+import TrafficSources from "./TrafficSources";
 
 interface StatData {
   title: string;
@@ -32,11 +32,6 @@ interface StatData {
 const Overview: React.FC = () => {
   const router = useRouter();
   const isNew = true;
-
-  if (isNew) {
-    router.push("/dashboard/onboarding");
-    return;
-  }
 
   const [filterValue, setFilterValue] = useState<string>("All Campaigns");
 
@@ -112,6 +107,11 @@ const Overview: React.FC = () => {
       onClick: () => setFilterValue("Completed Campaigns"),
     },
   ];
+
+  if (isNew) {
+    router.push("/dashboard/onboarding");
+    return;
+  }
 
   return (
     <div className="space-y-6">

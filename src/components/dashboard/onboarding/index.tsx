@@ -1,5 +1,6 @@
 import NotificationBell from "../../ui/notification-bell";
 import OnboardingBanner from "./onboarding-banner";
+import OnboardingProgress from "./onboarding-progress";
 
 const Onboarding = () => {
   return (
@@ -11,6 +12,10 @@ const Onboarding = () => {
       </header>
 
       <OnboardingBanner />
+
+      <div className="mt-6 w-full">
+        <OnboardingProgress />
+      </div>
     </main>
   );
 };

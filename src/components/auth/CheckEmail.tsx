@@ -1,15 +1,14 @@
 "use client";
 
 import { ChevronLeft } from "lucide-react";
+import Link from "next/link";
 import CustomButton from "../ui/custom-button";
 import AuthLayout from "./Layout";
-import Link from "next/link";
-import { useRouter } from "nextjs-toploader/app";
 
 const CheckEmail: React.FC = () => {
   const isPending = false;
 
-  const router = useRouter();
+
 
   const handleResendEmail = () => {
     console.log("Resending email...");
