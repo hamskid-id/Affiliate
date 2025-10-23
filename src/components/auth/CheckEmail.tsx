@@ -1,15 +1,12 @@
 "use client";
 
 import { ChevronLeft } from "lucide-react";
+import Link from "next/link";
 import CustomButton from "../ui/custom-button";
 import AuthLayout from "./Layout";
-import Link from "next/link";
-import { useRouter } from "nextjs-toploader/app";
 
 const CheckEmail: React.FC = () => {
   const isPending = false;
-
-  const router = useRouter();
 
   const handleResendEmail = () => {
     console.log("Resending email...");
@@ -26,7 +23,7 @@ const CheckEmail: React.FC = () => {
       footerLinkTitle="Back to Login"
     >
       <div className="flex w-full flex-col gap-6 mt-6">
-        <p className="text-sm text-[#333333]">Didn't get an email?</p>
+        <p className="text-sm text-[#333333]">Didn&apos;t get an email?</p>
         <CustomButton
           disabled={isPending}
           isLoading={isPending}

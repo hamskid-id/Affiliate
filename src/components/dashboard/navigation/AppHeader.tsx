@@ -1,12 +1,13 @@
 "use client";
 
-import * as React from "react";
+import { affiliateNav, navItems } from "@/src/contants/navigation";
+import { Plus, Search } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
-import { navItems } from "@/src/contants/navigation";
-import { NotificationIcon } from "@/src/svg";
-import { Search, Plus } from "lucide-react";
+import * as React from "react";
 import CustomButton from "../../ui/custom-button";
 import { Input } from "../../ui/input";
+import NotificationBell from "../../ui/notification-bell";
+import { useAuth } from "@/src/hooks/use-auth";
 
 interface IAppHeader {
   notificationsCount?: number;
@@ -15,14 +16,16 @@ interface IAppHeader {
 const AppHeader: React.FC<IAppHeader> = ({ notificationsCount = 0 }) => {
   const pathname = usePathname();
   const router = useRouter();
+  const { role } = useAuth();
   const [searchValue, setSearchValue] = React.useState("");
+  const items = role === "affiliate" ? affiliateNav : navItems;
 
   // Find exact match first
-  let activeItem = navItems.find((item) => pathname === item.url);
+  let activeItem = items.find((item) => pathname === item.url);
 
   // If no exact match, find the longest matching parent route
   if (!activeItem) {
-    const matchingItems = navItems.filter((item) => {
+    const matchingItems = items.filter((item) => {
       // Check if current path starts with the nav item's url and is a subroute
       return pathname.startsWith(item.url + "/");
     });
@@ -35,6 +38,7 @@ const AppHeader: React.FC<IAppHeader> = ({ notificationsCount = 0 }) => {
 
   // If no active item found, don't render the header
   if (!activeItem) return null;
+  if (activeItem.hideHeader) return null;
 
   // Check if we're on a subroute (not the exact main route)
   const isSubRoute = pathname !== activeItem.url;
@@ -91,14 +95,7 @@ const AppHeader: React.FC<IAppHeader> = ({ notificationsCount = 0 }) => {
           )}
 
           {/* Notifications */}
-          <div className="relative cursor-pointer">
-            <NotificationIcon />
-            {notificationsCount > 0 && (
-              <span className="absolute -top-1 -right-1 bg-[#E6F5EA] text-primary_40 text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center">
-                {notificationsCount}
-              </span>
-            )}
-          </div>
+          <NotificationBell notificationsCount={notificationsCount} />
 
           {/* Action Button */}
           {activeItem.showActionButton && (

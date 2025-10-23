@@ -9,7 +9,10 @@ import {
   IntegrationIcon,
   AffiliatesIcon,
   CommissionRulesIcon,
+  PointerSvg,
+  AwardSvg,
 } from "@/src/svg";
+import { Landmark } from "lucide-react";
 
 export interface NavItem {
   title: string;
@@ -22,9 +25,18 @@ export interface NavItem {
   actionButtonText?: string;
   actionButtonUrl?: string; // for navigation
   onActionClick?: () => void; // for custom actions
+  hideNav?: boolean;
+  hideHeader?: boolean;
 }
 
 export const navItems: NavItem[] = [
+  {
+    title: "Onboarding",
+    url: "/dashboard/onboarding",
+    icon: DashboardIcon,
+    hideNav: true,
+    hideHeader: true,
+  },
   {
     title: "Dashboard",
     url: "/dashboard",
@@ -77,6 +89,14 @@ export const navItems: NavItem[] = [
     actionButtonUrl: "/dashboard/commission-rules/create",
   },
   {
+    title: "Payments",
+    url: "/dashboard/payments",
+    icon: PayoutsIcon,
+    description: "Configure your payment methods securely",
+    showRightSection: false,
+    hideNav: true,
+  },
+  {
     title: "Payouts",
     url: "/dashboard/payouts",
     icon: PayoutsIcon,
@@ -104,5 +124,19 @@ export const navItems: NavItem[] = [
     icon: SettingsIcon,
     description: "Configure your account and preferences",
     showRightSection: false,
+  },
+];
+
+export const affiliateNav: NavItem[] = [
+  { title: "Dashboard", url: "/dashboard", icon: DashboardIcon },
+  { title: "Clicks & Conversion", url: "/dashboard/events", icon: PointerSvg },
+  { title: "Leaderboard", url: "/dashboard/leaderboard", icon: AwardSvg },
+  { title: "Payments", url: "/dashboard/payments", icon: Landmark },
+  {
+    title: "Request Payouts",
+    description:
+      "Withdraw your available balance by submitting a payout request",
+    url: "/dashboard/request-payouts",
+    icon: PayoutsIcon,
   },
 ];
