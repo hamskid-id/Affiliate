@@ -1,12 +1,13 @@
 "use client";
 
-import { navItems } from "@/src/contants/navigation";
+import { affiliateNav, navItems } from "@/src/contants/navigation";
 import { Plus, Search } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import * as React from "react";
 import CustomButton from "../../ui/custom-button";
 import { Input } from "../../ui/input";
 import NotificationBell from "../../ui/notification-bell";
+import { useAuth } from "@/src/hooks/use-auth";
 
 interface IAppHeader {
   notificationsCount?: number;
@@ -15,14 +16,16 @@ interface IAppHeader {
 const AppHeader: React.FC<IAppHeader> = ({ notificationsCount = 0 }) => {
   const pathname = usePathname();
   const router = useRouter();
+  const { role } = useAuth();
   const [searchValue, setSearchValue] = React.useState("");
+  const items = role === "affiliate" ? affiliateNav : navItems;
 
   // Find exact match first
-  let activeItem = navItems.find((item) => pathname === item.url);
+  let activeItem = items.find((item) => pathname === item.url);
 
   // If no exact match, find the longest matching parent route
   if (!activeItem) {
-    const matchingItems = navItems.filter((item) => {
+    const matchingItems = items.filter((item) => {
       // Check if current path starts with the nav item's url and is a subroute
       return pathname.startsWith(item.url + "/");
     });

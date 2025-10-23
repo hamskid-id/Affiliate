@@ -9,7 +9,10 @@ import {
   IntegrationIcon,
   AffiliatesIcon,
   CommissionRulesIcon,
+  PointerSvg,
+  AwardSvg,
 } from "@/src/svg";
+import { Landmark } from "lucide-react";
 
 export interface NavItem {
   title: string;
@@ -121,5 +124,19 @@ export const navItems: NavItem[] = [
     icon: SettingsIcon,
     description: "Configure your account and preferences",
     showRightSection: false,
+  },
+];
+
+export const affiliateNav: NavItem[] = [
+  { title: "Dashboard", url: "/dashboard", icon: DashboardIcon },
+  { title: "Clicks & Conversion", url: "/dashboard/events", icon: PointerSvg },
+  { title: "Leaderboard", url: "/dashboard/leaderboard", icon: AwardSvg },
+  { title: "Payments", url: "/dashboard/payments", icon: Landmark },
+  {
+    title: "Request Payouts",
+    description:
+      "Withdraw your available balance by submitting a payout request",
+    url: "/dashboard/request-payouts",
+    icon: PayoutsIcon,
   },
 ];
