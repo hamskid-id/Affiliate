@@ -20,7 +20,7 @@ const Orbit = () => {
   return (
     <>
       {/* LG */}
-      <div className="h-[196px] w-[196px] min-[400px]:h-[400px] sm:h-[700px] min-[400px]:w-[400px] sm:w-[700px] lg:w-[950px] lg:h-[950px]  border-[0.5px] border-[#FF5212]/40  rounded-full relative  orbit">
+      <div className="h-[196px] w-[196px] min-[400px]:h-[400px] sm:h-[700px] min-[400px]:w-[400px] sm:w-[700px] lg:w-[950px] lg:h-[950px]  border-[1px] border-[#FF5212]/40  rounded-full relative  orbit">
         <span
           style={{
             backgroundSize: winWidth! > 400 ? "30px" : "15px",
