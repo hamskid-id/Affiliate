@@ -64,7 +64,7 @@ const AppHeader: React.FC<IAppHeader> = ({ notificationsCount = 0 }) => {
             {activeItem.title}
           </h1>
           {activeItem.description && (
-            <p className="text-sm text-[#667085] font-normal">
+            <p className="text-sm text-[#667085] font-normal hidden sm:block">
               {activeItem.description}
             </p>
           )}
@@ -75,43 +75,78 @@ const AppHeader: React.FC<IAppHeader> = ({ notificationsCount = 0 }) => {
       </div>
 
       {activeItem.showRightSection && !isSubRoute && (
-        <div className="md:flex hidden items-center gap-4">
-          {/* Search Bar */}
-          {activeItem.showSearch && (
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#667085]" />
-              <Input
-                type="text"
-                placeholder="Search..."
-                value={searchValue}
-                onChange={(e) => setSearchValue(e.target.value)}
-                className="w-[220px] h-[45px] pl-10 pr-4 rounded-[50px] bg-[#4169E11A]"
-              />
-            </div>
-          )}
+        <>
+          {/* Desktop View */}
+          <div className="md:flex hidden items-center gap-4">
+            {/* Search Bar */}
+            {activeItem.showSearch && (
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#667085]" />
+                <Input
+                  type="text"
+                  placeholder="Search..."
+                  value={searchValue}
+                  onChange={(e) => setSearchValue(e.target.value)}
+                  className="w-[220px] h-[45px] pl-10 pr-4 rounded-[50px] bg-[#4169E11A]"
+                />
+              </div>
+            )}
 
-          {/* Notifications */}
-          <div className="relative cursor-pointer">
-            <NotificationIcon />
-            {notificationsCount > 0 && (
-              <span className="absolute -top-1 -right-1 bg-[#E6F5EA] text-primary_40 text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center">
-                {notificationsCount}
-              </span>
+            {/* Notifications */}
+            <div className="relative cursor-pointer">
+              <NotificationIcon />
+              {notificationsCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-[#E6F5EA] text-primary_40 text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center">
+                  {notificationsCount}
+                </span>
+              )}
+            </div>
+
+            {/* Action Button */}
+            {activeItem.showActionButton && (
+              <CustomButton
+                onClick={handleActionClick}
+                withSideIcon
+                sideIcon={<Plus className="w-5 h-5" />}
+                iconPosition="left"
+              >
+                {activeItem.actionButtonText || "Add New"}
+              </CustomButton>
             )}
           </div>
 
-          {/* Action Button */}
-          {activeItem.showActionButton && (
-            <CustomButton
-              onClick={handleActionClick}
-              withSideIcon
-              sideIcon={<Plus className="w-5 h-5" />}
-              iconPosition="left"
-            >
-              {activeItem.actionButtonText || "Add New"}
-            </CustomButton>
-          )}
-        </div>
+          {/* Mobile View - Search and Notification Icons Only */}
+          <div className="flex md:hidden items-center gap-3">
+            {/* Search Icon */}
+            {activeItem.showSearch && (
+              <button className="w-10 h-10 flex items-center justify-center rounded-full bg-[#4169E11A] hover:bg-[#4169E12A] transition-colors">
+                <Search className="w-5 h-5 text-[grey]" />
+              </button>
+            )}
+
+            {/* Notifications */}
+            <div className="relative cursor-pointer">
+              <div className="w-10 h-10 flex items-center justify-center">
+                <NotificationIcon />
+              </div>
+              {notificationsCount > 0 && (
+                <span className="absolute top-0 right-0 bg-[#E6F5EA] text-primary_40 text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center">
+                  {notificationsCount}
+                </span>
+              )}
+            </div>
+
+            {/* Action Button - Icon Only on Mobile */}
+            {activeItem.showActionButton && (
+              <button
+                onClick={handleActionClick}
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-[#FF5C00] hover:bg-[#E65400] transition-colors"
+              >
+                <Plus className="w-5 h-5 text-white" />
+              </button>
+            )}
+          </div>
+        </>
       )}
     </header>
   );

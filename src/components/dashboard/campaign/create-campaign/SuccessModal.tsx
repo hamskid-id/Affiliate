@@ -90,7 +90,7 @@ const SuccessModal: React.FC<SuccessModalProps> = ({
         <div className="flex gap-3 pt-4">
           <CustomButton
             title="Invite Affiliates"
-            className="flex-1 bg-white border border-[#606060] text-[#606060]"
+            className="flex-1 bg-white border-2 border-[#606060] text-[#606060]"
             textClassName="text-[#333333]"
             iconPosition="left"
             withSideIcon

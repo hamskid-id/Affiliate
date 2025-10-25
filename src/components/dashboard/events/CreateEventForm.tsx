@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { toast } from "sonner";
-import { ChevronRight, Copy, X } from "lucide-react";
+import { ChevronRight, Copy, Save, X } from "lucide-react";
 import { Form } from "@/src/components/ui/form";
 import CustomButton from "@/src/components/ui/custom-button";
 import { FormFieldType } from "@/src/types";
@@ -205,8 +205,8 @@ const CreateEventForm: React.FC = () => {
                     type="button"
                     disabled={isSubmitting}
                     withSideIcon
-                    sideIcon={<X className="w-4 h-4" />}
-                    className="bg-white hover:bg-white border border-black text-gray-700"
+                    sideIcon={<X className="w-3 h-3" />}
+                    className=" bg-white border-2 border-[#606060] text-[#606060] hover:bg-gray-50 shadow-none"
                   >
                     Cancel
                   </CustomButton>
@@ -215,8 +215,10 @@ const CreateEventForm: React.FC = () => {
                     type="submit"
                     disabled={isSubmitting}
                     isLoading={isSubmitting}
+                    withSideIcon
+                    sideIcon={<Save className="w-3 h-3" />}
                     title="Save Event"
-                    className="bg-[#FF5212] hover:bg-[#E54A10] px-6"
+                    className="md:w-[200px] w-auto"
                   />
                 </div>
               </form>

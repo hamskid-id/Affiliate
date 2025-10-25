@@ -23,7 +23,7 @@ const StatsCard: React.FC<StatsCardProps> = ({
   icon,
 }) => {
   return (
-    <div className="gap-2 flex flex-col shadow-[0_16px_32px_-12px_rgba(88,92,95,0.10)] bg-white rounded-[20px] p-[20px]">
+    <div className="gap-2 flex flex-col justify-between shadow-[0_16px_32px_-12px_rgba(88,92,95,0.10)] bg-white rounded-[20px] p-[20px]">
       <div className="flex justify-between items-center">
         <div>{icon}</div>
         <div className="flex items-center gap-1">

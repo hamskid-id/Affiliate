@@ -7,7 +7,7 @@ import ActiveEventSvg from "@/public/assets/active_events_svg.svg";
 import TotalClicks from "@/public/assets/conversion_rates.svg";
 import CoversionRatesSvg from "@/public/assets/top_events_svg.svg";
 import { CustomImage } from "../../ui/custom-image";
-import EventsList from "./EventsList";
+import EventsList from "./events-table/EventsList";
 import EventPerformanceTrends from "./EventsPerformanceTrends";
 import EventTypeDistribution from "./EventTypeDistribution";
 

@@ -16,6 +16,7 @@ import AffiliateSvg from "@/public/assets/Icon (1).svg";
 import PayoutSvg from "@/public/assets/Icon (2).svg";
 import EndSvg from "@/public/assets/Icon (3).svg";
 import { CustomImage } from "../../ui/custom-image";
+import DashboardSetup from "../setup";
 
 interface StatData {
   title: string;
@@ -30,7 +31,7 @@ interface StatData {
 
 const Overview: React.FC = () => {
   const [filterValue, setFilterValue] = useState<string>("All Campaigns");
-
+  const dashboardIsSetup = false;
   const statsData: StatData[] = [
     {
       title: "Total Campaigns",
@@ -103,6 +104,8 @@ const Overview: React.FC = () => {
       onClick: () => setFilterValue("Completed Campaigns"),
     },
   ];
+
+  if (!dashboardIsSetup) return <DashboardSetup />;
 
   return (
     <div className="space-y-6">

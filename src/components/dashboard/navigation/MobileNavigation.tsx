@@ -68,12 +68,12 @@ export const MobileNav = ({ items }: MobileNavProps) => {
                       className={cn(
                         "group flex items-center rounded-full shadow-md transition-colors bg-black text-white cursor-pointer",
                         "hover:bg-neutral-800",
-                        active && "bg-primary_40",
+                        active && "bg-[#FF5212]",
                       )}
                     >
                       {/* Icon */}
                       <div className="flex h-12 w-12 shrink-0 items-center justify-center">
-                        <item.icon className="h-4 w-4" />
+                        <item.icon className="h-4 w-4 !text-white" />
                       </div>
 
                       {/* Sliding Label */}
@@ -81,7 +81,7 @@ export const MobileNav = ({ items }: MobileNavProps) => {
                         initial={{ opacity: 0, x: -10 }}
                         whileHover={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="pr-4 text-[13px] font-medium text-[#CAEAD4] whitespace-nowrap"
+                        className="pr-4 text-[13px] font-medium text-white whitespace-nowrap"
                       >
                         {item.title}
                       </motion.span>

@@ -8,7 +8,7 @@ import ActiveAffiliateSvg from "@/public/assets/active_campaign.svg";
 import TotalClicks from "@/public/assets/total_clicks.svg";
 import CoversionRatesSvg from "@/public/assets/conversion_rates.svg";
 import { CustomImage } from "../../ui/custom-image";
-import AffiliatesList from "./AffiliatesList";
+import AffiliatesList from "./affiliates-table/AffiliatesList";
 
 const Affiliate: React.FC = () => {
   const statsData: StatsCardProps[] = [

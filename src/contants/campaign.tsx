@@ -1,5 +1,5 @@
 import { Link, QrCode } from "lucide-react";
-import { Campaign, CampaignType } from "../types/campaign";
+import { Campaign, CampaignType, Conversion } from "../types/campaign";
 
 export const CampaignTypes = [
   {
@@ -127,4 +127,123 @@ export const STATUS_STYLES = {
   Paused: "bg-[#FEF3C7] text-[#92400E]",
   Completed: "bg-[#E5E7EB] text-[#374151]",
   Scheduled: "bg-[#DBEAFE] text-[#1E40AF]",
+};
+
+export const MOCK_CONVERSIONS_DATA: Conversion[] = [
+  {
+    id: "CONV-001",
+    date: "Mar 15, 2025",
+    eventType: "Purchase",
+    fromUser: {
+      name: "Mike Chen",
+      email: "mike@example.com",
+    },
+    affiliate: {
+      name: "Sarah Johnson",
+      email: "sarah@example.com",
+    },
+    orderValue: "₦1,000",
+    commission: "₦1,000",
+    status: "Pending",
+    actions: "Delete",
+  },
+  {
+    id: "CONV-002",
+    date: "Mar 15, 2025",
+    eventType: "Purchase",
+    fromUser: {
+      name: "Mike Chen",
+      email: "mike@example.com",
+    },
+    affiliate: {
+      name: "Sarah Johnson",
+      email: "sarah@example.com",
+    },
+    orderValue: "₦1,000",
+    commission: "₦1,000",
+    status: "Pending",
+    actions: "Delete",
+  },
+  {
+    id: "CONV-003",
+    date: "Mar 15, 2025",
+    eventType: "Renewal",
+    fromUser: {
+      name: "Emma Williams",
+      email: "emma@example.com",
+    },
+    affiliate: {
+      name: "Sarah Johnson",
+      email: "sarah@example.com",
+    },
+    orderValue: "₦1,000",
+    commission: "₦1,000",
+    status: "Pending",
+    actions: "Delete",
+  },
+  {
+    id: "CONV-004",
+    date: "Mar 15, 2025",
+    eventType: "Signup",
+    fromUser: {
+      name: "Emma Williams",
+      email: "emma@example.com",
+    },
+    affiliate: {
+      name: "Sarah Johnson",
+      email: "sarah@example.com",
+    },
+    orderValue: "₦1,000",
+    commission: "₦1,000",
+    status: "Paid",
+    actions: "Delete",
+  },
+  {
+    id: "CONV-005",
+    date: "Mar 15, 2025",
+    eventType: "Purchase",
+    fromUser: {
+      name: "Mike Chen",
+      email: "mike@example.com",
+    },
+    affiliate: {
+      name: "Sarah Johnson",
+      email: "sarah@example.com",
+    },
+    orderValue: "₦1,000",
+    commission: "₦1,000",
+    status: "Failed",
+    actions: "Delete",
+  },
+  {
+    id: "CONV-006",
+    date: "Mar 15, 2025",
+    eventType: "Purchase",
+    fromUser: {
+      name: "Emma Williams",
+      email: "emma@example.com",
+    },
+    affiliate: {
+      name: "Sarah Johnson",
+      email: "sarah@example.com",
+    },
+    orderValue: "₦1,000",
+    commission: "₦1,000",
+    status: "Processing",
+    actions: "Delete",
+  },
+];
+
+export const EVENT_TYPE_STYLES = {
+  Purchase: "bg-[#FEF3C7] text-[#92400E]",
+  Signup: "bg-[#DBEAFE] text-[#1E40AF]",
+  Renewal: "bg-[#FED7AA] text-[#9A3412]",
+  Subscription: "bg-[#E0E7FF] text-[#4F46E5]",
+};
+
+export const CONVERSIONS_STATUS_STYLES = {
+  Pending: "bg-[#FEF3C7] text-[#92400E]",
+  Paid: "bg-[#D1FAE5] text-[#065F46]",
+  Failed: "bg-[#FEE2E2] text-[#991B1B]",
+  Processing: "bg-[#DBEAFE] text-[#1E40AF]",
 };

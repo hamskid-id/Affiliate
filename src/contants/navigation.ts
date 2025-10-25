@@ -58,34 +58,22 @@ export const navItems: NavItem[] = [
     title: "Events",
     url: "/dashboard/events",
     icon: EventsIcon,
-    description: "Track and manage conversion events",
-    showRightSection: true,
-    showSearch: true,
-    showActionButton: true,
-    actionButtonText: "Create Event",
-    actionButtonUrl: "/dashboard/events/create",
+    description:
+      "Define the actions that count as conversions for your campaigns.",
   },
   {
     title: "Commission Rules",
     url: "/dashboard/commission-rules",
     icon: CommissionRulesIcon,
-    description: "Set up and manage commission structures",
-    showRightSection: true,
-    showSearch: true,
-    showActionButton: true,
-    actionButtonText: "Add Rule",
-    actionButtonUrl: "/dashboard/commission-rules/create",
+    description:
+      "Manage automated commission calculations for your affiliate programs",
   },
   {
     title: "Payouts",
     url: "/dashboard/payouts",
     icon: PayoutsIcon,
-    description: "Process and track affiliate payments",
-    showRightSection: true,
-    showSearch: true,
-    showActionButton: true,
-    actionButtonText: "Process Payout",
-    actionButtonUrl: "/dashboard/payouts/process",
+    description:
+      "Manage automated commission calculations for your affiliate programs",
   },
   {
     title: "Integration",
@@ -105,4 +93,12 @@ export const navItems: NavItem[] = [
     description: "Configure your account and preferences",
     showRightSection: false,
   },
+];
+
+export const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "Features", href: "#features" },
+  { label: "Who It's For", href: "#who-its-for" },
+  { label: "How It Works", href: "#how-it-works" },
+  { label: "Contact", href: "#contact" },
 ];

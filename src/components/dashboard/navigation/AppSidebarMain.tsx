@@ -45,8 +45,8 @@ export function NavMain({ items }: NavMainProps) {
   const isActive = (url: string) => url === activeUrl;
 
   return (
-    <SidebarGroup>
-      <SidebarMenu className="flex flex-col gap-1">
+    <SidebarGroup className="custom-scroll">
+      <SidebarMenu className="flex flex-col gap-2 mb-5">
         {items.map((item, index) => {
           const active = isActive(item.url);
 

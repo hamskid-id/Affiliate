@@ -15,9 +15,15 @@ import {
 } from "@/src/schema/affiliate";
 import CustomInputField from "../../ui/custom-input-field";
 import { Checkbox } from "@/src/components/ui/checkbox";
+import InvitationSuccessModal from "./InvitationSuccessModal";
 
 const InviteAffiliateForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [invitationData, setInvitationData] = useState({
+    email: "",
+    url: "",
+  });
 
   const form = useForm<InviteAffiliateFormData>({
     resolver: zodResolver(InviteAffiliateSchema),
@@ -40,7 +46,16 @@ const InviteAffiliateForm: React.FC = () => {
       // Example API call here:
       // await affiliateService.invite(values);
 
+      // Mock invitation URL - replace with actual URL from API
+      const mockInvitationUrl = "https://yourwebsite.com/landing-page";
+
+      setInvitationData({
+        email: values.email,
+        url: mockInvitationUrl,
+      });
+
       toast.success("Invitation sent successfully!");
+      setShowSuccessModal(true);
       form.reset();
     } catch (err: any) {
       toast.error(err?.message || "Failed to send invitation");
@@ -201,8 +216,8 @@ const InviteAffiliateForm: React.FC = () => {
                     type="button"
                     disabled={isSubmitting}
                     withSideIcon
-                    sideIcon={<X className="w-4 h-4" />}
-                    className="bg-white hover:bg-white border border-black text-gray-700"
+                    sideIcon={<X className="w-3 h-3" />}
+                    className=" bg-white border-2 border-[#606060] text-[#606060] hover:bg-gray-50 shadow-none"
                   >
                     Cancel
                   </CustomButton>
@@ -211,10 +226,10 @@ const InviteAffiliateForm: React.FC = () => {
                     type="submit"
                     disabled={isSubmitting}
                     isLoading={isSubmitting}
-                    title="Send Invite"
-                    className="bg-[#FF5212] hover:bg-[#E54A10] px-6"
-                    sideIcon={<Send className="text-white w-4 h-4" />}
                     withSideIcon
+                    sideIcon={<Send className="w-3 h-3" />}
+                    title="Send Invite"
+                    className="md:w-[200px] w-auto"
                   />
                 </div>
               </form>
@@ -222,6 +237,14 @@ const InviteAffiliateForm: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Success Modal */}
+      <InvitationSuccessModal
+        open={showSuccessModal}
+        onClose={() => setShowSuccessModal(false)}
+        affiliateEmail={invitationData.email}
+        invitationUrl={invitationData.url}
+      />
     </div>
   );
 };

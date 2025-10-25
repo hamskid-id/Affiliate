@@ -31,3 +31,23 @@ export interface Campaign {
   dateCreated: string;
   timeAgo: string;
 }
+
+export interface Conversion {
+  id: string;
+  date: string;
+  eventType: "Purchase" | "Signup" | "Renewal" | "Subscription";
+  fromUser: {
+    name: string;
+    email: string;
+    avatar?: string;
+  };
+  affiliate: {
+    name: string;
+    email: string;
+    avatar?: string;
+  };
+  orderValue: string;
+  commission: string;
+  status: "Pending" | "Paid" | "Failed" | "Processing";
+  actions: string;
+}

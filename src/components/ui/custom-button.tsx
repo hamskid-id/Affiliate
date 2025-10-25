@@ -47,7 +47,7 @@ const Button = React.forwardRef<HTMLButtonElement, CustomButtonProps>(
           "rounded-full shadow-[inset_0px_6px_10px_rgba(255,255,255,0.7)]",
           "transition-all duration-300",
           // Hover and disabled states
-          "hover:bg-[#ff6a33] hover:shadow-[inset_0px_6px_20px_rgba(255,255,255,0.8),_0_4px_10px_rgba(0,0,0,0.2)]",
+          "hover:shadow-[inset_0px_6px_20px_rgba(255,255,255,0.8),_0_4px_10px_rgba(0,0,0,0.2)] !hover:text-white",
           "disabled:opacity-60 disabled:cursor-not-allowed",
           // Icon positioning logic
           iconPosition === "right" && "flex-row-reverse",

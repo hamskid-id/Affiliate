@@ -5,6 +5,7 @@ import { Toaster } from "@/src/components/ui/sonner";
 import { Suspense } from "react";
 import QueryProvider from "@/src/providers/QueryProvider";
 import NextTopLoader from "nextjs-toploader";
+import Loading from "../components/shared/Loading";
 
 const DmSans = DM_Sans({
   subsets: ["latin-ext"],
@@ -26,7 +27,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${DmSans.className} antialiased`}>
         <NextTopLoader color="#952800" showSpinner={false} />
-        <Suspense fallback={<div></div>}>
+        <Suspense fallback={<Loading />}>
           <QueryProvider>
             {children}
 

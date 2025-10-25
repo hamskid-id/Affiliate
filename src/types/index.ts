@@ -12,6 +12,7 @@ export enum FormFieldType {
   SELECT = "select",
   SKELETON = "skeleton",
   EMAIL = "email",
+  RADIO = "radio",
 }
 
 export interface User {
@@ -62,6 +63,16 @@ export interface PaginationParams {
   page?: number;
   limit?: number;
   [key: string]: any;
+}
+
+export interface Testimonial {
+  id: string;
+  quote: string;
+  author: {
+    name: string;
+    title: string;
+    avatar: string;
+  };
 }
 
 // Full API response with pagination

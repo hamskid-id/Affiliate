@@ -92,9 +92,9 @@ export const campaigns = [
 
 export const eventTypes = [
   { label: "Purchase", value: "purchase" },
-  { label: "Registration", value: "registration" },
+  { label: "Signup", value: "signup" },
   { label: "Page View", value: "page_view" },
   { label: "Subscription", value: "subscription" },
-  { label: "Add to Cart", value: "add_to_cart" },
+  { label: "Registration", value: "registration" },
   { label: "Custom Event", value: "custom" },
 ];

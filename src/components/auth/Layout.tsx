@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import { CustomImage } from "../ui/custom-image";
 import AuthImage from "@/public/assets/Subtract.png";
 import TrackedRevenue from "@/public/assets/Floating stats.svg";
-import ActiveUsers from "@/public/assets/Floating stats (1).svg";
+import ActiveUsers from "@/public/assets/Red Floating stats.svg";
 import UserRatings from "@/public/assets/Floating stats (2).svg";
 import shakeImage from "@/public/assets/shake_svg.svg";
 import { Brand } from "../shared/Brand";
@@ -145,11 +145,11 @@ const AuthLayout: React.FC<IAuthLayout> = ({
                 ease: [0.25, 0.1, 0.25, 1],
               }}
             >
-              <CustomImage src={TrackedRevenue} style="w-[200px] h-[102px]" />
+              <CustomImage src={ActiveUsers} style="w-[200px] h-[102px]" />
             </motion.span>
 
             <motion.span
-              className="absolute bottom-24 left-1/2 -translate-x-1/2 -translate-y-1/2"
+              className="backdrop-blur-sm absolute bottom-24 left-1/2 -translate-x-1/2 -translate-y-1/2"
               initial={{ opacity: 0, y: 100, scale: 0.8 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{
@@ -158,7 +158,7 @@ const AuthLayout: React.FC<IAuthLayout> = ({
                 ease: [0.25, 0.1, 0.25, 1],
               }}
             >
-              <CustomImage src={ActiveUsers} style="w-[262px] h-[110px]" />
+              <CustomImage src={TrackedRevenue} style="w-[262px] h-[110px]" />
             </motion.span>
 
             <motion.span

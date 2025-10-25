@@ -20,6 +20,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/src/components/ui/select";
+import { RadioGroup, RadioGroupItem } from "@/src/components/ui/radio-group";
 
 type Option = string | { label: string; value: string };
 
@@ -40,6 +41,7 @@ interface CustomProps<T extends FieldValues> {
   className?: string;
   renderSkeleton?: (field: ControllerRenderProps<T, FieldPath<T>>) => ReactNode;
   description?: string;
+  radioLayout?: "vertical" | "horizontal";
 }
 
 interface RenderFieldProps<T extends FieldValues> {
@@ -77,6 +79,7 @@ const RenderField = <T extends FieldValues>({
     icon,
     iconSrc,
     iconAlt,
+    radioLayout = "vertical",
   } = props;
 
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -181,12 +184,16 @@ const RenderField = <T extends FieldValues>({
 
     case FormFieldType.TEXTAREA:
       return (
-        <textarea
-          {...field}
-          disabled={disabled}
-          placeholder={placeholder}
-          className="w-full px-3 py-2 text-[12px]  min-h-[9rem] border border-[#f5f5f5] md:border-[#e5e5e5] dark:border-neutral-800 rounded-lg bg-white dark:bg-transparent overflow-y-auto resize-none text-[#404040] dark:text-white placeholder:text-[#a3a3a3] dark:placeholder:text-neutral-400 placeholder:font-normal outline-none"
-        />
+        <InputWrapper
+          className={cn(className, "min-h-[9rem] h-[9rem] rounded-lg")}
+        >
+          <textarea
+            {...field}
+            disabled={disabled}
+            placeholder={placeholder}
+            className="py-4 w-full h-full bg-transparent text-[#171717] dark:text-white text-[12px] placeholder:text-[#A3A3A3] dark:placeholder:text-neutral-400 placeholder:font-light outline-none"
+          />
+        </InputWrapper>
       );
 
     case FormFieldType.SELECT:
@@ -215,6 +222,37 @@ const RenderField = <T extends FieldValues>({
             </SelectContent>
           </Select>
         </InputWrapper>
+      );
+
+    case FormFieldType.RADIO:
+      return (
+        <RadioGroup
+          onValueChange={field.onChange}
+          value={field.value}
+          disabled={disabled}
+          className={cn(
+            "flex gap-4",
+            radioLayout === "vertical" ? "flex-col" : "flex-row flex-wrap",
+            className,
+          )}
+        >
+          {options?.map((option) => {
+            const value = typeof option === "string" ? option : option.value;
+            const label = typeof option === "string" ? option : option.label;
+
+            return (
+              <div key={value} className="flex items-center space-x-3">
+                <RadioGroupItem value={value} id={`${field.name}-${value}`} />
+                <label
+                  htmlFor={`${field.name}-${value}`}
+                  className="text-[12px] md:text-sm text-[#171717] dark:text-white cursor-pointer"
+                >
+                  {label}
+                </label>
+              </div>
+            );
+          })}
+        </RadioGroup>
       );
 
     default:
