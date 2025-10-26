@@ -61,11 +61,13 @@ const ConversionTrendsChart: React.FC = () => {
               <stop offset="95%" stopColor="#4ECDC4" stopOpacity={0.05} />
             </linearGradient>
           </defs>
+
           <CartesianGrid
             strokeDasharray="3 3"
             stroke="#F3F4F6"
             vertical={false}
           />
+
           <XAxis
             dataKey="name"
             axisLine={false}
@@ -88,19 +90,25 @@ const ConversionTrendsChart: React.FC = () => {
               fontSize: "12px",
             }}
           />
+
+          {/* 🟠 Revenue Line */}
           <Area
-            type="monotone"
+            type="linear"
             dataKey="revenue"
             stroke="#FF6B6B"
             strokeWidth={2}
+            strokeDasharray="5 5"
             fillOpacity={1}
             fill="url(#colorRevenue)"
           />
+
+          {/* 🟢 Conversion Line */}
           <Area
-            type="monotone"
+            type="linear"
             dataKey="conversion"
             stroke="#4ECDC4"
             strokeWidth={2}
+            strokeDasharray="5 5"
             fillOpacity={1}
             fill="url(#colorConversion)"
           />
