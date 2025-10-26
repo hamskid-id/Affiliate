@@ -1,7 +1,7 @@
-export type UserRole = "merchant" | "affiliate" | "admin";
+import { Role } from "../types";
 
 export function useAuth() {
-  const role: UserRole = "affiliate";
+  const role: Role = Role.AFFILIATE;
 
   return {
     role,

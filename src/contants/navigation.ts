@@ -9,10 +9,10 @@ import {
   IntegrationIcon,
   AffiliatesIcon,
   CommissionRulesIcon,
-  PointerSvg,
-  AwardSvg,
 } from "@/src/svg";
 import { Landmark } from "lucide-react";
+import { Role } from "../types";
+import { AwardSvg, PointerSvg } from "../svg/affiliate";
 
 export interface NavItem {
   title: string;
@@ -27,6 +27,7 @@ export interface NavItem {
   onActionClick?: () => void; // for custom actions
   hideNav?: boolean;
   hideHeader?: boolean;
+  roles: Role[];
 }
 
 export const navItems: NavItem[] = [
@@ -36,6 +37,7 @@ export const navItems: NavItem[] = [
     icon: DashboardIcon,
     hideNav: true,
     hideHeader: true,
+    roles: [Role.MERCHANT],
   },
   {
     title: "Dashboard",
@@ -43,6 +45,7 @@ export const navItems: NavItem[] = [
     icon: DashboardIcon,
     description: "Monitor your affiliate performance",
     showRightSection: false,
+    roles: [Role.MERCHANT, Role.AFFILIATE],
   },
   {
     title: "Campaigns",
@@ -53,7 +56,8 @@ export const navItems: NavItem[] = [
     showSearch: true,
     showActionButton: true,
     actionButtonText: "Create Campaign",
-    actionButtonUrl: "/dashboard/campaigns/create", // Navigate to create page
+    actionButtonUrl: "/dashboard/campaigns/create",
+    roles: [Role.MERCHANT],
   },
   {
     title: "Affiliates",
@@ -65,28 +69,23 @@ export const navItems: NavItem[] = [
     showActionButton: true,
     actionButtonText: "Invite Affiliate",
     actionButtonUrl: "/dashboard/affiliates/invite",
+    roles: [Role.MERCHANT],
   },
   {
     title: "Events",
     url: "/dashboard/events",
     icon: EventsIcon,
-    description: "Track and manage conversion events",
-    showRightSection: true,
-    showSearch: true,
-    showActionButton: true,
-    actionButtonText: "Create Event",
-    actionButtonUrl: "/dashboard/events/create",
+    description:
+      "Define the actions that count as conversions for your campaigns.",
+    roles: [Role.MERCHANT],
   },
   {
     title: "Commission Rules",
     url: "/dashboard/commission-rules",
     icon: CommissionRulesIcon,
-    description: "Set up and manage commission structures",
-    showRightSection: true,
-    showSearch: true,
-    showActionButton: true,
-    actionButtonText: "Add Rule",
-    actionButtonUrl: "/dashboard/commission-rules/create",
+    description:
+      "Manage automated commission calculations for your affiliate programs",
+    roles: [Role.MERCHANT],
   },
   {
     title: "Payments",
@@ -95,17 +94,15 @@ export const navItems: NavItem[] = [
     description: "Configure your payment methods securely",
     showRightSection: false,
     hideNav: true,
+    roles: [Role.MERCHANT],
   },
   {
     title: "Payouts",
     url: "/dashboard/payouts",
     icon: PayoutsIcon,
-    description: "Process and track affiliate payments",
-    showRightSection: true,
-    showSearch: true,
-    showActionButton: true,
-    actionButtonText: "Process Payout",
-    actionButtonUrl: "/dashboard/payouts/process",
+    description:
+      "Manage automated commission calculations for your affiliate programs",
+    roles: [Role.MERCHANT],
   },
   {
     title: "Integration",
@@ -117,6 +114,7 @@ export const navItems: NavItem[] = [
     showActionButton: true,
     actionButtonText: "Add Integration",
     actionButtonUrl: "/dashboard/integration/add",
+    roles: [Role.MERCHANT],
   },
   {
     title: "Settings",
@@ -124,19 +122,40 @@ export const navItems: NavItem[] = [
     icon: SettingsIcon,
     description: "Configure your account and preferences",
     showRightSection: false,
+    roles: [Role.MERCHANT],
   },
-];
-
-export const affiliateNav: NavItem[] = [
-  { title: "Dashboard", url: "/dashboard", icon: DashboardIcon },
-  { title: "Clicks & Conversion", url: "/dashboard/events", icon: PointerSvg },
-  { title: "Leaderboard", url: "/dashboard/leaderboard", icon: AwardSvg },
-  { title: "Payments", url: "/dashboard/payments", icon: Landmark },
+  {
+    title: "Clicks & Conversion",
+    url: "/dashboard/events",
+    icon: PointerSvg,
+    roles: [Role.AFFILIATE],
+  },
+  {
+    title: "Leaderboard",
+    url: "/dashboard/leaderboard",
+    icon: AwardSvg,
+    roles: [Role.AFFILIATE],
+  },
+  {
+    title: "Payments",
+    url: "/dashboard/payments",
+    icon: Landmark,
+    roles: [Role.AFFILIATE],
+  },
   {
     title: "Request Payouts",
     description:
       "Withdraw your available balance by submitting a payout request",
     url: "/dashboard/request-payouts",
     icon: PayoutsIcon,
+    roles: [Role.AFFILIATE],
   },
+];
+
+export const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "Features", href: "#features" },
+  { label: "Who It's For", href: "#who-its-for" },
+  { label: "How It Works", href: "#how-it-works" },
+  { label: "Contact", href: "#contact" },
 ];

@@ -11,6 +11,8 @@ import {
 } from "@/src/components/ui/sidebar";
 import { cn } from "@/src/lib/utils";
 import { NavItem } from "@/src/types/navigation";
+import React from "react";
+import { useAuth } from "@/src/hooks/use-auth";
 
 interface NavMainProps {
   items: readonly NavItem[];
@@ -18,14 +20,20 @@ interface NavMainProps {
 
 export function NavMain({ items }: NavMainProps) {
   const { state } = useSidebar();
+  const { role } = useAuth();
 
   const isCollapsed = state === "collapsed";
   const pathname = usePathname();
 
+  const filteredItems = React.useMemo(() => {
+    if (!role) return [];
+    return items.filter((item) => item.roles?.includes(role));
+  }, [items, role]);
+
   // Find the most specific (longest) matching route
   const getActiveUrl = () => {
     // Find exact match first
-    const visibleItems = items.filter((i) => !i.hideNav);
+    const visibleItems = filteredItems.filter((i) => !i.hideNav);
     const exactMatch = visibleItems.find((item) => pathname === item.url);
     if (exactMatch) return exactMatch.url;
 
@@ -48,7 +56,7 @@ export function NavMain({ items }: NavMainProps) {
   return (
     <SidebarGroup>
       <SidebarMenu className="flex flex-col gap-1">
-        {items
+        {filteredItems
           .filter((i) => !i.hideNav)
           .map((item, index) => {
             const active = isActive(item.url);
@@ -80,9 +88,6 @@ export function NavMain({ items }: NavMainProps) {
                     <span className="text-[13px] font-[500]">{item.title}</span>
                   </Link>
                 </SidebarMenuButton>
-                {index === 4 && (
-                  <div className="-mx-2 my-3 h-[1px] bg-[#E5E7EB]" />
-                )}
               </SidebarMenuItem>
             );
           })}

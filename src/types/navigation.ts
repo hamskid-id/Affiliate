@@ -1,6 +1,9 @@
+import { Role } from ".";
+
 export interface NavItem {
   title: string;
   url: string;
+  roles: Role[];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   icon: React.ComponentType<any>;
   items?: {

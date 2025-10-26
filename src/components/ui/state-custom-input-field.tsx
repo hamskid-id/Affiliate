@@ -58,12 +58,14 @@ const CustomInputField: React.FC<CustomInputFieldProps> = ({
 
       {/* Textarea */}
       {type === "textarea" && (
-        <Textarea
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          placeholder={placeholder}
-          className="w-full px-4 py-3 text-[12px] min-h-[120px] border border-[#f5f5f5] md:border-[#e5e5e5] dark:border-neutral-800 rounded-lg bg-white dark:bg-transparent resize-none text-[#171717] dark:text-white placeholder:text-[#A3A3A3] dark:placeholder:text-neutral-400 placeholder:font-light outline-none focus:border-[#FDC316]"
-        />
+        <div className="border border-[#f5f5f5] md:border-[#e5e5e5] dark:border-neutral-800 p-4 min-h-[9rem] h-[9rem] rounded-lg flex items-center gap-4 focus-within:border-[#FDC316]">
+          <textarea
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+            placeholder={placeholder}
+            className="w-full h-full border-none bg-transparent text-[#171717] text-[12px] outline-none"
+          />
+        </div>
       )}
 
       {/* Select Dropdown */}

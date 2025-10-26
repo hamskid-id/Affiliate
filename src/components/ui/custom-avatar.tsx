@@ -7,6 +7,7 @@ import {
   AvatarFallback,
 } from "@/src/components/ui/avatar";
 import { useAvatar } from "@/src/hooks/use-avatar";
+import { cn } from "@/src/lib/utils";
 
 interface AvatarProps {
   imageSrc?: string;
@@ -33,7 +34,7 @@ const CustomAvatar: React.FC<AvatarProps> = ({
   });
 
   return (
-    <ShadcnAvatar className={className}>
+    <ShadcnAvatar className={cn("w-[40px] h-[40px]", className)}>
       {validImageSrc ? (
         <AvatarImage src={validImageSrc} />
       ) : (

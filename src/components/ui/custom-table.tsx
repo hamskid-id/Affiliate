@@ -23,20 +23,22 @@ export interface TableColumn {
   className?: string;
 }
 
+export interface TableRowData {
+  [key: string]: React.ReactNode | any; // Allow any type for values
+  rawData?: any;
+}
+
 export interface TableAction {
   label: string;
   icon?: React.ReactNode;
-  onClick: (
-    row: Record<string, React.ReactNode> & { rawData?: any },
-    rowIndex: number,
-  ) => void;
+  onClick: (row: TableRowData, rowIndex: number) => void;
   variant?: "default" | "outline" | "ghost" | "destructive";
 }
 
 export interface CustomTableProps {
   caption?: string;
   columns: TableColumn[];
-  rows: (Record<string, React.ReactNode> & { rawData?: any })[];
+  rows: TableRowData[];
   actions?: TableAction[];
   className?: string;
   tableHeaderClassName?: string;
