@@ -1,4 +1,4 @@
-import CreateEventForm from "@/src/components/dashboard/events/CreateEventForm";
+import CreateEventForm from "@/src/components/dashboard/merchant/events/CreateEventForm";
 
 export default function CreateEventsPage() {
   return <CreateEventForm />;

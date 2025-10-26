@@ -1,5 +1,5 @@
 import GotoTop from "../components/shared/GotoTop";
-import SmoothCursor from "../components/shared/SmoothCursor";
+import SmoothCursor from "../components/static/SmoothCursor";
 import CommissionStepsSection from "../components/static/CommissionStepsSection";
 import EverythingYouNeedSection from "../components/static/EverythingYouNeedSection";
 import Footer from "../components/static/Footer";

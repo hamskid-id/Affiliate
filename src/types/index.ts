@@ -15,6 +15,11 @@ export enum FormFieldType {
   RADIO = "radio",
 }
 
+export enum Role {
+  AFFILIATE = "affiliate",
+  ADMIN = "admin",
+  MERCHANT = "merchant",
+}
 export interface User {
   id: string;
   created_at: string;

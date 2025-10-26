@@ -27,7 +27,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${DmSans.className} antialiased`}>
         <NextTopLoader color="#952800" showSpinner={false} />
-        <Suspense fallback={<Loading />}>
+        <Suspense fallback={<div></div>}>
           <QueryProvider>
             {children}
 

@@ -1,12 +1,13 @@
 "use client";
 
-import * as React from "react";
-import { usePathname, useRouter } from "next/navigation";
 import { navItems } from "@/src/contants/navigation";
-import { NotificationIcon } from "@/src/svg";
-import { Search, Plus } from "lucide-react";
+import { Plus, Search } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import * as React from "react";
 import CustomButton from "../../ui/custom-button";
 import { Input } from "../../ui/input";
+import NotificationBell from "../../ui/notification-bell";
+import { NotificationIcon } from "@/src/svg";
 
 interface IAppHeader {
   notificationsCount?: number;
@@ -34,7 +35,7 @@ const AppHeader: React.FC<IAppHeader> = ({ notificationsCount = 0 }) => {
   }
 
   // If no active item found, don't render the header
-  if (!activeItem) return null;
+  if (!activeItem || activeItem.hideHeader) return null;
 
   // Check if we're on a subroute (not the exact main route)
   const isSubRoute = pathname !== activeItem.url;
@@ -114,6 +115,8 @@ const AppHeader: React.FC<IAppHeader> = ({ notificationsCount = 0 }) => {
               </CustomButton>
             )}
           </div>
+          {/* Notifications */}
+          <NotificationBell notificationsCount={notificationsCount} />
 
           {/* Mobile View - Search and Notification Icons Only */}
           <div className="flex md:hidden items-center gap-3">

@@ -3,7 +3,7 @@
 import useInView from "@/src/hooks/use-in-view";
 import Image from "next/image";
 import { useRef } from "react";
-import Orbit from "../shared/Orbit";
+import Orbit from "./Orbit";
 import HeroImage from "../../../public/assets/Hero Image.svg";
 
 const HeroBottom = () => {
