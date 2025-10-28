@@ -58,7 +58,7 @@ const InputWrapper = ({
 }) => (
   <div
     className={cn(
-      "border border-[#f5f5f5] md:border-[#e5e5e5] dark:border-neutral-800 dark:bg-transparent px-4 rounded-[50px] h-[48px] overflow-hidden flex items-center gap-x-4 focus-within:border-[#FDC316]",
+      "border border border-[#e5e5e5] dark:border-neutral-800 dark:bg-transparent px-4 rounded-[50px] h-[48px] overflow-hidden flex items-center gap-x-4 focus-within:border-[#FDC316]",
       className,
     )}
   >
@@ -266,7 +266,7 @@ const CustomFormField = <T extends FieldValues>(props: CustomProps<T>) => {
   return (
     <div className="flex flex-col gap-y-2">
       {fieldType !== FormFieldType.CHECKBOX && label && (
-        <label className="md:text-sm text-[12px] md:text-base capitalize font-[500] text-[#344054] dark:text-white">
+        <label className="text-sm md:text-base capitalize font-[500] text-[#344054] dark:text-white">
           {label}
         </label>
       )}

@@ -94,7 +94,7 @@ const AppHeader: React.FC<IAppHeader> = ({ notificationsCount = 0 }) => {
             )}
 
             {/* Notifications */}
-            <div className="relative cursor-pointer">
+            <div className=" relative cursor-pointer">
               <NotificationIcon />
               {notificationsCount > 0 && (
                 <span className="absolute -top-1 -right-1 bg-[#E6F5EA] text-primary_40 text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center">
@@ -115,8 +115,6 @@ const AppHeader: React.FC<IAppHeader> = ({ notificationsCount = 0 }) => {
               </CustomButton>
             )}
           </div>
-          {/* Notifications */}
-          <NotificationBell notificationsCount={notificationsCount} />
 
           {/* Mobile View - Search and Notification Icons Only */}
           <div className="flex md:hidden items-center gap-3">
