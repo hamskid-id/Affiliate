@@ -10,9 +10,9 @@ import {
   SheetTitle,
   SheetTrigger,
   SheetClose,
-} from "@/components/ui/sheet";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+} from "@/src/components/ui/sheet";
+import { cn } from "@/src/lib/utils";
+import { Button } from "@/src/components/ui/button";
 
 interface SheetWrapperProps {
   children: ReactNode;

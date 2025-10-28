@@ -3,10 +3,10 @@
 import React, { useState } from "react";
 import { PayoutsTableHeader } from "./PayoutsTableHeader";
 import { PayoutsTable } from "./PayoutsTable";
-import { MOCK_PAYOUTS_DATA } from "@/src/contants/payout";
-import { usePayoutSelection } from "@/src/hooks/payout/use-payout-selection";
-import { usePayoutFilters } from "@/src/hooks/payout/use-payout-filters";
-import { Payout } from "@/src/types/payout";
+import { MOCK_PAYOUTS_DATA } from "@/src/contants/merchant-payout";
+import { usePayoutSelection } from "@/src/hooks/merchant-payout/use-payout-selection";
+import { usePayoutFilters } from "@/src/hooks/merchant-payout/use-payout-filters";
+import { Payout } from "@/src/types/merchant-payout";
 import ExportPayoutCSVModal from "../ExportPayoutCSVModal";
 import ConfirmPayoutModal from "../ConfirmPayoutModal";
 import { SearchAndFilters } from "@/src/components/shared/SearchAndFilters";

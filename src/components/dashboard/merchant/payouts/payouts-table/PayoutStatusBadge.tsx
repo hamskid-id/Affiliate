@@ -1,5 +1,5 @@
-import { PAYOUT_STATUS_STYLES } from "@/src/contants/payout";
-import { Payout } from "@/src/types/payout";
+import { PAYOUT_STATUS_STYLES } from "@/src/contants/merchant-payout";
+import { Payout } from "@/src/types/merchant-payout";
 import React from "react";
 
 interface PayoutStatusBadgeProps {

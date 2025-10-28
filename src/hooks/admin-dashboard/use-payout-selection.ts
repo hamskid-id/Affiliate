@@ -1,7 +1,7 @@
+import { Payouts } from "@/src/types/admin-dashboard";
 import { useState, useCallback } from "react";
-import { Payout } from "../../types/payout";
 
-export const usePayoutSelection = (payouts: Payout[]) => {
+export const usePayoutSelection = (Payouts: Payouts[]) => {
   const [selectedPayouts, setSelectedPayouts] = useState<string[]>([]);
   const [selectAll, setSelectAll] = useState<boolean>(false);
 
@@ -10,25 +10,25 @@ export const usePayoutSelection = (payouts: Payout[]) => {
       setSelectedPayouts([]);
       setSelectAll(false);
     } else {
-      setSelectedPayouts(payouts.map((payout) => payout.id));
+      setSelectedPayouts(Payouts.map((Payout) => Payout.id));
       setSelectAll(true);
     }
-  }, [selectAll, payouts]);
+  }, [selectAll, Payouts]);
 
   const handleSelectPayout = useCallback(
-    (payoutId: string) => {
-      if (selectedPayouts.includes(payoutId)) {
-        setSelectedPayouts(selectedPayouts.filter((id) => id !== payoutId));
+    (PayoutId: string) => {
+      if (selectedPayouts.includes(PayoutId)) {
+        setSelectedPayouts(selectedPayouts.filter((id) => id !== PayoutId));
         setSelectAll(false);
       } else {
-        const newSelected = [...selectedPayouts, payoutId];
+        const newSelected = [...selectedPayouts, PayoutId];
         setSelectedPayouts(newSelected);
-        if (newSelected.length === payouts.length) {
+        if (newSelected.length === Payouts.length) {
           setSelectAll(true);
         }
       }
     },
-    [selectedPayouts, payouts.length],
+    [selectedPayouts, Payouts.length]
   );
 
   return {

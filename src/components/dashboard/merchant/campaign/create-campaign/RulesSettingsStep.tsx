@@ -4,11 +4,11 @@ import React from "react";
 import { Switch } from "@/src/components/ui/switch";
 import { CustomImage } from "@/src/components/ui/custom-image";
 import CustomInputField from "../../../../ui/state-custom-input-field";
-import { CampaignFormData, CampaignType } from "@/src/types/campaign";
+import { CampaignFormData, CampaignType } from "@/src/types/merchant-campaign";
 
 import CampaignSvg from "@/public/assets/step-active-campaign-icon.svg";
 import AffiliateSvg from "@/public/assets/approved-affiliate-icon.svg";
-import { CampaignTimezone } from "@/src/contants/campaign";
+import { CampaignTimezone } from "@/src/contants/merchant-campaign";
 
 interface RulesSettingsStepProps {
   formData: CampaignFormData;

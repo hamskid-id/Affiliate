@@ -1,6 +1,6 @@
 "use client";
 
-import { CampaignFormData, CampaignType } from "@/src/types/campaign";
+import { CampaignFormData, CampaignType } from "@/src/types/merchant-campaign";
 import React, { useState } from "react";
 import StepIndicator from "./StepIndicator";
 import CampaignDetailsStep from "./CampaignDetailsStep";

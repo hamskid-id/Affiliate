@@ -1,4 +1,4 @@
-import { Payout } from "@/src/types/payout";
+import { Payout } from "@/src/types/merchant-payout";
 import React from "react";
 
 interface PaymentMethodBadgeProps {

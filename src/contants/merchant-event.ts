@@ -1,4 +1,4 @@
-import { Event } from "../types/event";
+import { Event } from "../types/merchant-event";
 
 export const MOCK_EVENTS_DATA: Event[] = [
   {

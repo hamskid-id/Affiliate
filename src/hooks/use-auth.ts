@@ -1,11 +1,12 @@
 import { Role } from "../types";
 
 export function useAuth() {
-  const role: Role = Role.AFFILIATE;
+  // Mocked role for now
+  const role = Role.ADMIN as Role;
 
   return {
     role,
-    user: role ? { role } : null,
+    user: { role },
     isAuthenticated: true,
   } as const;
 }

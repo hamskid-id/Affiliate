@@ -3,9 +3,9 @@
 import React from "react";
 import { AffiliatesTableHeader } from "./AffiliatesTableHeader";
 import { AffiliatesTable } from "./AffiliatesTable";
-import { MOCK_AFFILIATES_DATA } from "@/src/contants/affiliate";
-import { useAffiliateSelection } from "@/src/hooks/affiliate/use-affiliate-selection";
-import { useAffiliateFilters } from "@/src/hooks/affiliate/use-affiliate-filters";
+import { MOCK_AFFILIATES_DATA } from "@/src/contants/merchant-affiliate";
+import { useAffiliateSelection } from "@/src/hooks/merchant-affiliate/use-affiliate-selection";
+import { useAffiliateFilters } from "@/src/hooks/merchant-affiliate/use-affiliate-filters";
 import { SearchAndFilters } from "@/src/components/shared/SearchAndFilters";
 import { ActiveFilters } from "@/src/components/shared/ActiveFilters";
 

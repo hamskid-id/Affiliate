@@ -1,5 +1,5 @@
-import { RULE_TYPE_STYLES } from "@/src/contants/commission-rule";
-import { CommissionRule } from "@/src/types/commission-rule";
+import { RULE_TYPE_STYLES } from "@/src/contants/merchant-commission-rule";
+import { CommissionRule } from "@/src/types/merchant-commission-rule";
 import React from "react";
 
 interface RuleTypeBadgeProps {

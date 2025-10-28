@@ -1,5 +1,5 @@
-import { TYPE_STYLES } from "@/src/contants/campaign";
-import { Campaign } from "@/src/types/campaign";
+import { TYPE_STYLES } from "@/src/contants/merchant-campaign";
+import { Campaign } from "@/src/types/merchant-campaign";
 import React from "react";
 
 interface TypeBadgeProps {

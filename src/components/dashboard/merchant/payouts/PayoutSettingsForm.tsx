@@ -11,8 +11,11 @@ import CustomInputField from "@/src/components/ui/custom-input-field";
 import {
   PayoutSettingsFormData,
   PayoutSettingsSchema,
-} from "@/src/schema/payout";
-import { campaignsOptions, frequencyOptions } from "@/src/contants/payout";
+} from "@/src/schema/merchant-payout";
+import {
+  campaignsOptions,
+  frequencyOptions,
+} from "@/src/contants/merchant-payout";
 
 const PayoutSettingsForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -116,7 +119,7 @@ const PayoutSettingsForm: React.FC = () => {
                   <div className="border border-[#E8E8E8] rounded-[50px] p-3 min-h-[44px] flex flex-wrap gap-2 items-center">
                     {selectedCampaigns.map((campaign) => {
                       const campaignLabel = campaignsOptions.find(
-                        (c) => c.value === campaign,
+                        (c) => c.value === campaign
                       )?.label;
                       return (
                         <div

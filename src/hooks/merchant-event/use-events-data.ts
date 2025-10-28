@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
-import { MOCK_EVENTS_DATA } from "../../contants/event";
-import { Event } from "../../types/event";
+import { MOCK_EVENTS_DATA } from "../../contants/merchant-event";
+import { Event } from "../../types/merchant-event";
 
 export const useEventsData = () => {
   const [eventsData, setEventsData] = useState<Event[]>(MOCK_EVENTS_DATA);
@@ -8,8 +8,8 @@ export const useEventsData = () => {
   const handleStatusToggle = useCallback((eventId: string) => {
     setEventsData((prevData) =>
       prevData.map((event) =>
-        event.id === eventId ? { ...event, status: !event.status } : event,
-      ),
+        event.id === eventId ? { ...event, status: !event.status } : event
+      )
     );
   }, []);
 

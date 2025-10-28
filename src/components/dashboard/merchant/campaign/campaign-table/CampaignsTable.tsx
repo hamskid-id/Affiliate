@@ -7,7 +7,7 @@ import { EllipsisVertical } from "lucide-react";
 import { TypeBadge } from "./TypeBadge";
 import { StatusBadge } from "./StatusBadge";
 import { PerformanceBar } from "../PerformanceBar";
-import { Campaign } from "@/src/types/campaign";
+import { Campaign } from "@/src/types/merchant-campaign";
 
 interface CampaignsTableProps {
   campaigns: Campaign[];

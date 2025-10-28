@@ -6,7 +6,7 @@ import CustomTable, {
 import CustomAvatar from "@/src/components/ui/custom-avatar";
 import { StatusBadge } from "./StatusBadge";
 import { AffiliateActions } from "./AffiliateActions";
-import { Affiliate } from "@/src/types/affiliate";
+import { Affiliate } from "@/src/types/merchant-affiliate";
 
 interface AffiliatesTableProps {
   affiliates: Affiliate[];

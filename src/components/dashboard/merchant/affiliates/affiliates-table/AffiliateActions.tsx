@@ -1,6 +1,6 @@
 import React from "react";
 import { Check, Pause } from "lucide-react";
-import { Affiliate } from "@/src/types/affiliate";
+import { Affiliate } from "@/src/types/merchant-affiliate";
 
 interface AffiliateActionsProps {
   affiliate: Affiliate;

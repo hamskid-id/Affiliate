@@ -6,7 +6,7 @@ import CustomTable, {
 import CustomAvatar from "@/src/components/ui/custom-avatar";
 import { EventTypeBadge } from "./EventTypeBadge";
 import { StatusBadge } from "./StatusBadge";
-import { Conversion } from "@/src/types/campaign";
+import { Conversion } from "@/src/types/merchant-campaign";
 
 interface ConversionsTableProps {
   conversions: Conversion[];

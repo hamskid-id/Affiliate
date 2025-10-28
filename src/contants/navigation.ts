@@ -13,6 +13,7 @@ import {
 import { Landmark } from "lucide-react";
 import { Role } from "../types";
 import { AwardSvg, PointerSvg } from "../svg/affiliate";
+import { MerchantIcon, TransactionIcon } from "../svg/admin";
 
 export interface NavItem {
   title: string;
@@ -45,7 +46,7 @@ export const navItems: NavItem[] = [
     icon: DashboardIcon,
     description: "Monitor your affiliate performance",
     showRightSection: false,
-    roles: [Role.MERCHANT, Role.AFFILIATE],
+    roles: [Role.MERCHANT, Role.AFFILIATE, Role.ADMIN],
   },
   {
     title: "Campaigns",
@@ -69,7 +70,16 @@ export const navItems: NavItem[] = [
     showActionButton: true,
     actionButtonText: "Invite Affiliate",
     actionButtonUrl: "/dashboard/affiliates/invite",
-    roles: [Role.MERCHANT],
+    roles: [Role.MERCHANT, Role.ADMIN],
+  },
+  {
+    title: "Merchant",
+    url: "/dashboard/merchant",
+    icon: MerchantIcon,
+    description: "View and manage all registered merchant accounts",
+    showRightSection: true,
+    showSearch: true,
+    roles: [Role.ADMIN],
   },
   {
     title: "Events",
@@ -94,7 +104,15 @@ export const navItems: NavItem[] = [
     description: "Configure your payment methods securely",
     showRightSection: false,
     hideNav: true,
-    roles: [Role.MERCHANT],
+    roles: [Role.MERCHANT, Role.ADMIN],
+  },
+  {
+    title: "Transactions",
+    url: "/dashboard/transactions",
+    icon: TransactionIcon,
+    description:
+      "Manage automated commission calculations for your affiliate programs",
+    roles: [Role.ADMIN],
   },
   {
     title: "Payouts",
@@ -102,27 +120,27 @@ export const navItems: NavItem[] = [
     icon: PayoutsIcon,
     description:
       "Manage automated commission calculations for your affiliate programs",
-    roles: [Role.MERCHANT],
+    roles: [Role.MERCHANT, Role.ADMIN],
   },
-  {
-    title: "Integration",
-    url: "/dashboard/integration",
-    icon: IntegrationIcon,
-    description: "Connect with third-party tools and services",
-    showRightSection: true,
-    showSearch: true,
-    showActionButton: true,
-    actionButtonText: "Add Integration",
-    actionButtonUrl: "/dashboard/integration/add",
-    roles: [Role.MERCHANT],
-  },
+  // {
+  //   title: "Integration",
+  //   url: "/dashboard/integration",
+  //   icon: IntegrationIcon,
+  //   description: "Connect with third-party tools and services",
+  //   showRightSection: true,
+  //   showSearch: true,
+  //   showActionButton: true,
+  //   actionButtonText: "Add Integration",
+  //   actionButtonUrl: "/dashboard/integration/add",
+  //   roles: [Role.MERCHANT],
+  // },
   {
     title: "Settings",
     url: "/dashboard/settings",
     icon: SettingsIcon,
     description: "Configure your account and preferences",
     showRightSection: false,
-    roles: [Role.MERCHANT],
+    roles: [Role.MERCHANT, Role.ADMIN],
   },
   {
     title: "Clicks & Conversion",

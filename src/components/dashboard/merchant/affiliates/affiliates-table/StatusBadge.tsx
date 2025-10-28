@@ -1,5 +1,5 @@
-import { STATUS_STYLES } from "@/src/contants/affiliate";
-import { Affiliate } from "@/src/types/affiliate";
+import { STATUS_STYLES } from "@/src/contants/merchant-affiliate";
+import { Affiliate } from "@/src/types/merchant-affiliate";
 import React from "react";
 
 interface StatusBadgeProps {

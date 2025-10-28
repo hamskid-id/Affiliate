@@ -5,9 +5,9 @@ import { SearchAndFilters } from "../../../../shared/SearchAndFilters";
 import { ActiveFilters } from "../../../../shared/ActiveFilters";
 import { EventsTableHeader } from "./EventsTableHeader";
 import { EventsTable } from "./EventsTable";
-import { useEventsData } from "@/src/hooks/event/use-events-data";
-import { useEventFilters } from "@/src/hooks/event/use-event-filters";
-import { Event } from "@/src/types/event";
+import { useEventsData } from "@/src/hooks/merchant-event/use-events-data";
+import { useEventFilters } from "@/src/hooks/merchant-event/use-event-filters";
+import { Event } from "@/src/types/merchant-event";
 
 const EventsList: React.FC = () => {
   const { eventsData, handleStatusToggle } = useEventsData();
