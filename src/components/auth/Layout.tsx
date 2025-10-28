@@ -62,7 +62,7 @@ const AuthLayout: React.FC<IAuthLayout> = ({
   return (
     <div className="relative flex h-screen w-full overflow-y-auto custom-scroll">
       {/* LEFT SECTION (Form area - Takes remaining space after right section) */}
-      <div className="flex flex-col w-full lg:w-[calc(100%-735px)] min-w-[400px]">
+      <div className="flex flex-col w-full lg:w-[calc(100%-735px)]">
         <div className="h-full">
           <div className="px-4 py-6 md:px-6 md:py-6 min-h-full flex flex-col">
             {/* Brand at the top-left */}
@@ -74,12 +74,12 @@ const AuthLayout: React.FC<IAuthLayout> = ({
             <div className="flex-1 flex items-center justify-center py-0">
               <div className="w-full max-w-[512px] sm:px-6 px-0">
                 {title && (
-                  <h1 className="mb-2 text-[22px] text-center md:text-[30px] font-[700]">
+                  <h1 className="mb-2 text-[25px] text-center md:text-[30px] font-[700]">
                     {title}
                   </h1>
                 )}
                 {description && (
-                  <p className="text-[12px] text-center md:text-[15px] font-[400] text-[#606060]">
+                  <p className="text-sm text-center md:text-[15px] font-[400] text-[#606060]">
                     {description}
                   </p>
                 )}

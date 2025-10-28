@@ -12,7 +12,7 @@ export const PayoutTableHeader: React.FC<PayoutTableHeaderProps> = ({
   onApproveAll,
 }) => {
   return (
-    <div className="flex flex-col sm:flex-row sm:items-center justify-between p-6 border-b border-gray-100">
+    <div className="flex flex-col sm:flex-row sm:items-center justify-between sm:p-[20px] p-[15px] border-b border-gray-100">
       <div className="flex items-center gap-4">
         <h2 className="text-lg font-bold text-[#111827]">Payout Management</h2>
         {selectedCount > 0 && (

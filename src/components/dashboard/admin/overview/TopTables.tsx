@@ -12,7 +12,7 @@ import {
 export const TopTables: React.FC = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      <div className="bg-white rounded-xl  p-6">
+      <div className="bg-white rounded-[20px] sm:p-[20px] p-[15px]">
         <div className="flex items-center justify-between mb-6">
           <h3 className="text-[18px] font-semibold text-[#111827]">
             Top Merchants
@@ -28,7 +28,7 @@ export const TopTables: React.FC = () => {
         <TopMerchantsTable merchants={MOCK_TOP_MERCHANTS} />
       </div>
 
-      <div className="bg-white rounded-xl  p-6">
+      <div className="bg-white rounded-[20px] sm:p-[20px] p-[15px]">
         <div className="flex items-center justify-between mb-6">
           <h3 className="text-[18px] font-semibold text-[#111827]">
             Top Affiliates
