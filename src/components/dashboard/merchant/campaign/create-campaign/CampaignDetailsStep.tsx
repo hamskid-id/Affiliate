@@ -2,11 +2,11 @@
 
 import React from "react";
 import CustomInputField from "../../../../ui/state-custom-input-field";
-import { CampaignFormData } from "@/src/types/campaign";
+import { CampaignFormData } from "@/src/types/merchant-campaign";
 import {
   CampaignCategoryOption,
   CampaignPriority,
-} from "@/src/contants/campaign";
+} from "@/src/contants/merchant-campaign";
 
 interface CampaignDetailsStepProps {
   formData: CampaignFormData;

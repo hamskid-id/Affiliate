@@ -1,5 +1,5 @@
 import { Link, QrCode } from "lucide-react";
-import { Campaign, CampaignType, Conversion } from "../types/campaign";
+import { Campaign, CampaignType, Conversion } from "../types/merchant-campaign";
 
 export const CampaignTypes = [
   {

@@ -7,7 +7,7 @@ import CustomDropdown, {
   DropdownItem,
 } from "@/src/components/ui/custom-dropdown";
 import { ChevronDown, Check } from "lucide-react";
-import { Payout } from "@/src/types/payout";
+import { Payout } from "@/src/types/merchant-payout";
 
 interface ConfirmPayoutModalProps {
   open: boolean;
@@ -23,7 +23,7 @@ const ConfirmPayoutModal: React.FC<ConfirmPayoutModalProps> = ({
   onConfirm,
 }) => {
   const [paymentMethod, setPaymentMethod] = useState<string>(
-    payout?.paymentMethod || "Paypal",
+    payout?.paymentMethod || "Paypal"
   );
 
   const paymentMethodItems: DropdownItem[] = [

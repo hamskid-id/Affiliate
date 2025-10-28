@@ -1,6 +1,6 @@
 import React from "react";
 import { Edit2, Pause, Play, Trash2, MoreVertical } from "lucide-react";
-import { CommissionRule } from "@/src/types/commission-rule";
+import { CommissionRule } from "@/src/types/merchant-commission-rule";
 
 interface RuleActionsProps {
   rule: CommissionRule;

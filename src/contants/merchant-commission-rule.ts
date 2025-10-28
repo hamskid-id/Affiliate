@@ -1,4 +1,4 @@
-import { CommissionRule } from "../types/commission-rule";
+import { CommissionRule } from "../types/merchant-commission-rule";
 
 export const MOCK_COMMISSION_RULES_DATA: CommissionRule[] = [
   {

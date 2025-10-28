@@ -1,4 +1,4 @@
-import { Affiliate } from "../types/affiliate";
+import { Affiliate } from "../types/merchant-affiliate";
 
 export const MOCK_AFFILIATES_DATA: Affiliate[] = [
   {

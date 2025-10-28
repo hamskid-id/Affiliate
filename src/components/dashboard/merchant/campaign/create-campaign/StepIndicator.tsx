@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Check } from "lucide-react";
-import { CampaignCreationSteps } from "@/src/contants/campaign";
+import { CampaignCreationSteps } from "@/src/contants/merchant-campaign";
 
 interface StepIndicatorProps {
   currentStep: number;

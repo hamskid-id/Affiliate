@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { Campaign } from "../../types/campaign";
+import { Campaign } from "../../types/merchant-campaign";
 
 export const useCampaignSelection = (campaigns: Campaign[]) => {
   const [selectedCampaigns, setSelectedCampaigns] = useState<string[]>([]);
@@ -19,7 +19,7 @@ export const useCampaignSelection = (campaigns: Campaign[]) => {
     (campaignId: string) => {
       if (selectedCampaigns.includes(campaignId)) {
         setSelectedCampaigns(
-          selectedCampaigns.filter((id) => id !== campaignId),
+          selectedCampaigns.filter((id) => id !== campaignId)
         );
         setSelectAll(false);
       } else {
@@ -30,7 +30,7 @@ export const useCampaignSelection = (campaigns: Campaign[]) => {
         }
       }
     },
-    [selectedCampaigns, campaigns.length],
+    [selectedCampaigns, campaigns.length]
   );
 
   return {

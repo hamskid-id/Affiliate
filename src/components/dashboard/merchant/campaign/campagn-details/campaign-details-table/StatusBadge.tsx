@@ -1,5 +1,5 @@
-import { CONVERSIONS_STATUS_STYLES } from "@/src/contants/campaign";
-import { Conversion } from "@/src/types/campaign";
+import { CONVERSIONS_STATUS_STYLES } from "@/src/contants/merchant-campaign";
+import { Conversion } from "@/src/types/merchant-campaign";
 import React from "react";
 
 interface StatusBadgeProps {

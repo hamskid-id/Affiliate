@@ -3,9 +3,9 @@
 import React from "react";
 import { CommissionRulesTableHeader } from "./CommissionRulesTableHeader";
 import { CommissionRulesTable } from "./CommissionRulesTable";
-import { MOCK_COMMISSION_RULES_DATA } from "@/src/contants/commission-rule";
-import { useCommissionRuleFilters } from "@/src/hooks/commission-rule/use-commission-rule-filters";
-import { CommissionRule } from "@/src/types/commission-rule";
+import { MOCK_COMMISSION_RULES_DATA } from "@/src/contants/merchant-commission-rule";
+import { useCommissionRuleFilters } from "@/src/hooks/merchant-commission-rule/use-commission-rule-filters";
+import { CommissionRule } from "@/src/types/merchant-commission-rule";
 import { SearchAndFilters } from "../../../../shared/SearchAndFilters";
 import { ActiveFilters } from "../../../../shared/ActiveFilters";
 import { useRouter } from "nextjs-toploader/app";

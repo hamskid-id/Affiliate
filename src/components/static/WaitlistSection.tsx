@@ -9,7 +9,7 @@ import CustomInputField from "@/src/components/ui/custom-input-field";
 import CustomButton from "@/src/components/ui/custom-button";
 import { FormFieldType } from "@/src/types";
 import { CAMPAIGN_OPTIONS } from "@/src/contants/static";
-import { WaitlistFormData, WaitlistFormSchema } from "@/src/schema/waitlist";
+import { WaitlistFormData, WaitlistFormSchema } from "@/src/schema/static";
 
 const WaitlistSection: React.FC = () => {
   const [isPending, setIsPending] = useState(false);

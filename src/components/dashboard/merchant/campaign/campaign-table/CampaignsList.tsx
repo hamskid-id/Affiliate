@@ -3,10 +3,10 @@
 import React from "react";
 import { CampaignsTableHeader } from "./CampaignsTableHeader";
 import { CampaignsTable } from "./CampaignsTable";
-import { MOCK_CAMPAIGNS_DATA } from "@/src/contants/campaign";
-import { useCampaignSelection } from "@/src/hooks/campaign/use-campaign-selection";
-import { useCampaignFilters } from "@/src/hooks/campaign/use-campaign-filters";
-import { Campaign } from "@/src/types/campaign";
+import { MOCK_CAMPAIGNS_DATA } from "@/src/contants/merchant-campaign";
+import { useCampaignSelection } from "@/src/hooks/merchant-campaign/use-campaign-selection";
+import { useCampaignFilters } from "@/src/hooks/merchant-campaign/use-campaign-filters";
+import { Campaign } from "@/src/types/merchant-campaign";
 import { useRouter } from "nextjs-toploader/app";
 import { SearchAndFilters } from "@/src/components/shared/SearchAndFilters";
 import { ActiveFilters } from "@/src/components/shared/ActiveFilters";

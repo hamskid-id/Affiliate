@@ -1,5 +1,5 @@
-import { TYPE_STYLES } from "@/src/contants/event";
-import { Event } from "@/src/types/event";
+import { TYPE_STYLES } from "@/src/contants/merchant-event";
+import { Event } from "@/src/types/merchant-event";
 import React from "react";
 
 interface TypeBadgeProps {

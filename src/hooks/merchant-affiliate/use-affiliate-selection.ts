@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { Affiliate } from "../../types/affiliate";
+import { Affiliate } from "../../types/merchant-affiliate";
 
 export const useAffiliateSelection = (affiliates: Affiliate[]) => {
   const [selectedAffiliates, setSelectedAffiliates] = useState<string[]>([]);
@@ -19,7 +19,7 @@ export const useAffiliateSelection = (affiliates: Affiliate[]) => {
     (affiliateId: string) => {
       if (selectedAffiliates.includes(affiliateId)) {
         setSelectedAffiliates(
-          selectedAffiliates.filter((id) => id !== affiliateId),
+          selectedAffiliates.filter((id) => id !== affiliateId)
         );
         setSelectAll(false);
       } else {
@@ -30,7 +30,7 @@ export const useAffiliateSelection = (affiliates: Affiliate[]) => {
         }
       }
     },
-    [selectedAffiliates, affiliates.length],
+    [selectedAffiliates, affiliates.length]
   );
 
   return {

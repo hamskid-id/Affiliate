@@ -1,4 +1,4 @@
-import { Payout } from "../types/payout";
+import { Payout } from "../types/merchant-payout";
 
 export const MOCK_PAYOUTS_DATA: Payout[] = [
   {

@@ -1,5 +1,5 @@
-import { EVENT_TYPE_STYLES } from "@/src/contants/campaign";
-import { Conversion } from "@/src/types/campaign";
+import { EVENT_TYPE_STYLES } from "@/src/contants/merchant-campaign";
+import { Conversion } from "@/src/types/merchant-campaign";
 import React from "react";
 
 interface EventTypeBadgeProps {

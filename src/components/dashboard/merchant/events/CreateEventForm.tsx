@@ -9,8 +9,12 @@ import { Form } from "@/src/components/ui/form";
 import CustomButton from "@/src/components/ui/custom-button";
 import { FormFieldType } from "@/src/types";
 import CustomInputField from "@/src/components/ui/custom-input-field";
-import { CreateEventFormData, CreateEventSchema } from "@/src/schema/events";
-import { campaigns, eventTypes, iconOptions } from "@/src/contants/event";
+import { CreateEventFormData, CreateEventSchema } from "@/src/schema/merchant-events";
+import {
+  campaigns,
+  eventTypes,
+  iconOptions,
+} from "@/src/contants/merchant-event";
 
 const CreateEventForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);

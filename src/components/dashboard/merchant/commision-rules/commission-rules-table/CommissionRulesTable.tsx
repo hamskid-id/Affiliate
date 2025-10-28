@@ -6,7 +6,7 @@ import CustomTable, {
 import { RuleTypeBadge } from "./RuleTypeBadge";
 import { StatusBadge } from "./StatusBadge";
 import { RuleActions } from "./RuleActions";
-import { CommissionRule } from "@/src/types/commission-rule";
+import { CommissionRule } from "@/src/types/merchant-commission-rule";
 
 interface CommissionRulesTableProps {
   rules: CommissionRule[];

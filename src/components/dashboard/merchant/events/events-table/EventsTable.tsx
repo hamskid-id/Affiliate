@@ -6,7 +6,7 @@ import CustomTable, {
 import { Switch } from "@/src/components/ui/switch";
 import { TypeBadge } from "./TypeBadge";
 import { EventActions } from "./EventActions";
-import { Event } from "@/src/types/event";
+import { Event } from "@/src/types/merchant-event";
 
 interface EventsTableProps {
   events: Event[];

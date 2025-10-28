@@ -9,11 +9,11 @@ import { Switch } from "@/src/components/ui/switch";
 import CustomButton from "@/src/components/ui/custom-button";
 import { FormFieldType } from "@/src/types";
 import CustomInputField from "@/src/components/ui/custom-input-field";
-import { events } from "@/src/contants/commission-rule";
+import { events } from "@/src/contants/merchant-commission-rule";
 import {
   CreateRuleFormData,
   CreateRuleSchema,
-} from "@/src/schema/commission-rule";
+} from "@/src/schema/merchant-commission-rule";
 
 const CreateRuleForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);

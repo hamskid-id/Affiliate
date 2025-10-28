@@ -11,7 +11,7 @@ import { Copy, ExternalLink, Link as LinkIcon, Percent } from "lucide-react";
 import { Button } from "../../ui/button";
 import { SearchAndFilters } from "../../shared/SearchAndFilters";
 import { ActiveFilters } from "../../shared/ActiveFilters";
-import { useAffiliateFilters } from "@/src/hooks/affiliate/use-affiliate-filters";
+import { useAffiliateFilters } from "@/src/hooks/merchant-affiliate/use-affiliate-filters";
 
 const AffiliateOverview: React.FC = () => {
   const {

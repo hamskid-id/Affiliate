@@ -12,7 +12,7 @@ import { FormFieldType } from "@/src/types";
 import {
   InviteAffiliateFormData,
   InviteAffiliateSchema,
-} from "@/src/schema/affiliate";
+} from "@/src/schema/merchant-affiliate";
 import CustomInputField from "../../../ui/custom-input-field";
 import { Checkbox } from "@/src/components/ui/checkbox";
 import InvitationSuccessModal from "./InvitationSuccessModal";

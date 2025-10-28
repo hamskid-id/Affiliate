@@ -3,9 +3,9 @@
 import React from "react";
 import { ConversionsTableHeader } from "./ConversionsTableHeader";
 import { ConversionsTable } from "./ConversionsTable";
-import { MOCK_CONVERSIONS_DATA } from "@/src/contants/campaign";
-import { useConversionFilters } from "@/src/hooks/campaign/use-conversion-filters";
-import { Conversion } from "@/src/types/campaign";
+import { MOCK_CONVERSIONS_DATA } from "@/src/contants/merchant-campaign";
+import { useConversionFilters } from "@/src/hooks/merchant-campaign/use-conversion-filters";
+import { Conversion } from "@/src/types/merchant-campaign";
 import { SearchAndFilters } from "@/src/components/shared/SearchAndFilters";
 import { ActiveFilters } from "@/src/components/shared/ActiveFilters";
 

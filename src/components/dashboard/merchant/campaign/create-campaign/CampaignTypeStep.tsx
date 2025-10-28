@@ -2,9 +2,9 @@
 
 import React from "react";
 import { Check } from "lucide-react";
-import { CampaignType } from "@/src/types/campaign";
+import { CampaignType } from "@/src/types/merchant-campaign";
 import { cn } from "@/src/lib/utils";
-import { CampaignTypes } from "@/src/contants/campaign";
+import { CampaignTypes } from "@/src/contants/merchant-campaign";
 
 interface CampaignTypeStepProps {
   selectedType: CampaignType | null;
@@ -39,13 +39,13 @@ const CampaignTypeStep: React.FC<CampaignTypeStepProps> = ({
                 "relative p-5 rounded-2xl border-2 text-left transition-all duration-200 ease-in-out hover:shadow-md focus:outline-none",
                 isSelected
                   ? "border-[#FF5212]"
-                  : "border-[#e5e5e5] hover:border-[#FDC316]",
+                  : "border-[#e5e5e5] hover:border-[#FDC316]"
               )}
             >
               <div
                 className={cn(
                   "w-12 h-12 rounded-xl flex items-center justify-center mb-4",
-                  type.gradient,
+                  type.gradient
                 )}
               >
                 {type.icon}

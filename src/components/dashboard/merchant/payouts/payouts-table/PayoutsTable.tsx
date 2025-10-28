@@ -7,7 +7,7 @@ import CustomAvatar from "@/src/components/ui/custom-avatar";
 import { PayoutStatusBadge } from "./PayoutStatusBadge";
 import { PaymentMethodBadge } from "./PaymentMethodBadge";
 import { PayoutActions } from "./PayoutActions";
-import { Payout } from "@/src/types/payout";
+import { Payout } from "@/src/types/merchant-payout";
 
 interface PayoutsTableProps {
   payouts: Payout[];
