@@ -44,7 +44,7 @@ const ManageBusinessList: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6 p-6 bg-[#F9FAFB]">
+    <div className="space-y-6 py-6 bg-[#F9FAFB]">
       {/* Search and Filter Section */}
       <SearchAndFilters
         searchQuery={searchQuery}
@@ -60,18 +60,16 @@ const ManageBusinessList: React.FC = () => {
       <ActiveFilters filters={activeFilters} onRemoveFilter={removeFilter} />
 
       {/* Table Section */}
-      <div>
+      <div className="bg-white rounded-[20px] shadow-[0_16px_32px_-12px_rgba(88,92,95,0.10)] overflow-hidden">
         <BusinessTableHeader onAddNew={handleAddNew} />
 
-        <div className="bg-white rounded-xl border border-[#E5E7EB] overflow-hidden">
-          <BusinessTable
-            businesses={businessesData}
-            onEdit={handleEdit}
-            onToggleStatus={handleToggleStatus}
-            onDelete={handleDelete}
-            onMore={handleMore}
-          />
-        </div>
+        <BusinessTable
+          businesses={businessesData}
+          onEdit={handleEdit}
+          onToggleStatus={handleToggleStatus}
+          onDelete={handleDelete}
+          onMore={handleMore}
+        />
       </div>
     </div>
   );

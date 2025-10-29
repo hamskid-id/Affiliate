@@ -11,10 +11,10 @@ import FailedPayoutsSvg from "@/public/assets/inactive_rules_svg.svg";
 import PayoutsList from "./payouts-table/PayoutsList";
 import PayoutSettingsForm from "./PayoutSettingsForm";
 
-const PayoutDashboard: React.FC = () => {
+const AdminPayout: React.FC = () => {
   const statsData: StatsCardProps[] = [
     {
-      title: "Total affiliates due for payout",
+      title: "Pending Payouts",
       value: "₦200,847",
       change: "+12%",
       trend: "up",
@@ -29,7 +29,7 @@ const PayoutDashboard: React.FC = () => {
       iconColor: "text-yellow-600",
     },
     {
-      title: "Total amount payable",
+      title: "Total Paid",
       value: "₦1,847,892",
       change: "+3%",
       trend: "up",
@@ -44,14 +44,14 @@ const PayoutDashboard: React.FC = () => {
       iconColor: "text-green-600",
     },
     {
-      title: "Affiliates below threshold",
+      title: "Failed Payouts",
       value: "92",
       change: "+18%",
       trend: "up",
       subtitle: "vs. last month",
       icon: (
         <CustomImage
-          src={ProcessingPayoutsSvg}
+          src={FailedPayoutsSvg}
           style="w-[40px] h-[40px] rounded-[50px]"
         />
       ),
@@ -59,14 +59,14 @@ const PayoutDashboard: React.FC = () => {
       iconColor: "text-blue-600",
     },
     {
-      title: "Next scheduled payout date",
-      value: "Dec 1st",
+      title: "Processing Time",
+      value: "2 - 3",
       change: "+2.1%",
       trend: "up",
-      subtitle: "2 weeks remaining",
+      subtitle: "days average",
       icon: (
         <CustomImage
-          src={FailedPayoutsSvg}
+          src={ProcessingPayoutsSvg}
           style="w-[40px] h-[40px] rounded-[50px]"
         />
       ),
@@ -85,10 +85,8 @@ const PayoutDashboard: React.FC = () => {
       </div>
 
       <PayoutsList />
-
-      <PayoutSettingsForm />
     </div>
   );
 };
 
-export default PayoutDashboard;
+export default AdminPayout;

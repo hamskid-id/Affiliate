@@ -110,8 +110,10 @@ export const navItems: NavItem[] = [
     title: "Transactions",
     url: "/dashboard/transactions",
     icon: TransactionIcon,
+    showRightSection: true,
+    showSearch: true,
     description:
-      "Manage automated commission calculations for your affiliate programs",
+      " Monitor and manage all affiliate transactions and commissions",
     roles: [Role.ADMIN],
   },
   {
